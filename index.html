@@ -9,58 +9,60 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
 
-:root {
+:root{
 --navy:#071b36;
---navy2:#0b2b50;
 --blue:#087bdc;
---cyan:#32c5f4;
---white:#fff;
+--ink:#132b45;
 --muted:#7b8da2;
 --line:#e3edf5;
---shadow:0 14px 40px #0b315014;
+--bg:#f4f8fc;
+--green:#159b70;
+--red:#df5261;
+--gold:#c58b19;
+--shadow:0 12px 35px #0b315012;
 }
 
 *{box-sizing:border-box}
 
-body {
+body{
 margin:0;
-background:#f4f8fc;
-color:#132b45;
+background:var(--bg);
+color:var(--ink);
 font-family:'Cairo',sans-serif;
 }
 
 button{font:inherit;cursor:pointer}
 
-.topbar {
-background:var(--navy);
-color:#fff;
-padding:10px 5%;
+.top{
+background:#06172e;
+color:#c7dced;
+padding:8px 5%;
 display:flex;
 justify-content:space-between;
-font-size:12px;
+font-size:11px;
 }
 
-.masthead {
+header{
 background:linear-gradient(115deg,#071b36,#0b3968);
-color:#fff;
-padding:22px 5% 26px;
+color:white;
+padding:22px 5%;
 position:relative;
 overflow:hidden;
 }
 
-.masthead:after {
+header:after{
 content:"";
 position:absolute;
-width:420px;
-height:420px;
-border:1px solid #ffffff12;
+width:400px;
+height:400px;
+border:1px solid #ffffff18;
 border-radius:50%;
 left:-100px;
-top:-260px;
+top:-270px;
 box-shadow:0 0 0 35px #ffffff08,0 0 0 75px #ffffff05;
 }
 
-.brand {
+.brand{
 display:flex;
 align-items:center;
 gap:14px;
@@ -68,467 +70,489 @@ position:relative;
 z-index:1;
 }
 
-.crest {
-width:60px;
-height:66px;
+.crest{
+width:58px;
+height:64px;
 display:grid;
 place-items:center;
 background:linear-gradient(145deg,#fff,#cdeaff);
 color:#073467;
 clip-path:polygon(50% 0,94% 12%,90% 72%,50% 100%,10% 72%,6% 12%);
-font-size:28px;
+font-size:27px;
 }
 
-.brand h1 {
+.brand h1{
 font-size:24px;
 margin:0;
 font-weight:900;
 }
 
-.brand p {
-margin:3px 0 0;
+.brand p{
+margin:2px 0 0;
 color:#b8d7f2;
-font-size:12px;
-letter-spacing:1.4px;
+font-size:11px;
+letter-spacing:1.5px;
 direction:ltr;
 text-align:right;
 }
 
-.tagline {
-margin:20px 0 0;
+.tagline{
+position:relative;
+z-index:1;
+margin:17px 0 0;
 color:#d8eaff;
-font-size:13px;
+font-size:12px;
 }
 
-.nav-wrap {
-background:#fff;
-box-shadow:0 5px 20px #092b4b0c;
+.navwrap{
 position:sticky;
 top:0;
-z-index:20;
+z-index:30;
+background:#fff;
+box-shadow:0 5px 20px #092b4b0c;
 }
 
-.nav {
+.nav{
 display:flex;
-gap:5px;
+gap:4px;
 padding:8px 4%;
 overflow:auto;
 scrollbar-width:none;
 }
 
-.nav button {
+.nav button{
 border:0;
-background:transparent;
-color:#62758a;
-padding:10px 15px;
+background:none;
+color:#63778d;
+padding:10px 13px;
 border-radius:10px;
 white-space:nowrap;
-font-size:13px;
-font-weight:700;
+font-size:12px;
+font-weight:800;
 }
 
 .nav button.active,
-.nav button:hover {
+.nav button:hover{
 background:#eaf5ff;
 color:#0875ce;
 }
 
-.container {
+main{
 width:min(1160px,92%);
-margin:28px auto 70px;
+margin:26px auto 75px;
 }
 
-.page {
+.page{
 display:none;
-animation:fade .35s ease;
+animation:fade .3s ease;
 }
 
 .page.active{display:block}
 
-@keyframes fade {
-from{opacity:0;transform:translateY(8px)}
+@keyframes fade{
+from{opacity:0;transform:translateY(7px)}
 to{opacity:1;transform:none}
 }
 
-.section-head {
+.head{
 display:flex;
 justify-content:space-between;
 align-items:end;
-margin:0 0 18px;
 gap:12px;
+margin:0 0 17px;
 }
 
-.eyebrow {
-color:#1688d9;
-font-size:11px;
+.eyebrow{
+font-size:10px;
 font-weight:900;
 letter-spacing:1px;
+color:var(--blue);
 }
 
-.section-head h2 {
+.head h2{
 font-size:23px;
-margin:3px 0 0;
+margin:3px 0;
 color:#0b2948;
 }
 
-.section-head p {
-margin:3px 0 0;
-color:var(--muted);
+.head p{
 font-size:12px;
+color:var(--muted);
+margin:0;
 }
 
-.btn {
+.btn{
 border:0;
 background:var(--blue);
 color:#fff;
-padding:10px 16px;
+padding:10px 15px;
 border-radius:10px;
 font-size:12px;
 font-weight:800;
 }
 
-.btn.ghost {
+.btn.light{
 background:#eaf4fc;
 color:#0875ce;
 }
 
-.hero {
+.hero{
 display:grid;
-grid-template-columns:1.4fr .8fr;
-gap:16px;
-margin-bottom:28px;
+grid-template-columns:1.35fr .85fr;
+gap:15px;
+margin-bottom:20px;
 }
 
-.hero-main {
-min-height:285px;
+.heroMain{
+min-height:250px;
+padding:25px;
 border-radius:20px;
-padding:28px;
 color:white;
+background:linear-gradient(115deg,#061a35ef,#075ca9d9);
 position:relative;
 overflow:hidden;
-background:
-linear-gradient(115deg,#061a35dd,#075ca9c9),
-radial-gradient(circle at 75% 20%,#2cc6ff,transparent 30%),
-linear-gradient(130deg,#0b2c52,#087bdc);
 }
 
-.hero-main:after {
+.heroMain:after{
 content:"⚽";
 position:absolute;
 left:4%;
 bottom:-45px;
-font-size:190px;
-opacity:.12;
-transform:rotate(-18deg);
+font-size:180px;
+opacity:.13;
 }
 
-.pill {
+.pill{
 display:inline-block;
 background:#ffffff20;
 border:1px solid #ffffff35;
 border-radius:30px;
 padding:5px 11px;
-font-size:11px;
+font-size:10px;
 }
 
-.hero-main h2 {
-font-size:30px;
+.heroMain h2{
+font-size:28px;
 line-height:1.5;
+margin:17px 0 7px;
 max-width:520px;
-margin:20px 0 8px;
-position:relative;
-z-index:1;
 }
 
-.hero-main p {
-color:#d5eaff;
-font-size:13px;
-max-width:440px;
+.heroMain p{
+font-size:12px;
 line-height:1.9;
+color:#d5eaff;
+max-width:440px;
 }
 
-.hero-side {
-background:#fff;
+.panel,.card,.stat,.tablebox,.about{
+background:white;
 border:1px solid var(--line);
-border-radius:20px;
-padding:20px;
+border-radius:16px;
 box-shadow:var(--shadow);
 }
 
-.side-title {
+.panel{padding:18px}
+
+.panelTitle{
 display:flex;
 justify-content:space-between;
 align-items:center;
 font-weight:900;
-margin-bottom:14px;
+margin-bottom:10px;
 }
 
-.live-dot{color:#e34b59;font-size:11px}
+.live{
+color:var(--red);
+font-size:10px;
+}
 
-.score {
+.live:before{
+content:"●";
+margin-left:5px;
+animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+50%{opacity:.3}
+}
+
+.scoreline{
 display:flex;
 align-items:center;
 justify-content:space-between;
+gap:6px;
 padding:13px 0;
 border-bottom:1px solid var(--line);
-gap:8px;
 }
 
-.team {
-display:flex;
-align-items:center;
-gap:8px;
-font-size:12px;
+.club{
+font-size:11px;
 font-weight:800;
+text-align:center;
 }
 
-.team-badge {
-width:34px;
-height:34px;
-border-radius:11px;
-background:#eaf4fc;
-color:#0875ce;
+.club i{
 display:grid;
 place-items:center;
+width:37px;
+height:37px;
+margin:0 auto 5px;
+border-radius:12px;
+background:#eaf4fc;
+color:#0875ce;
+font-style:normal;
+font-size:16px;
+}
+
+.score{
+font-size:20px;
 font-weight:900;
 }
 
-.score-mid {
-text-align:center;
-font-weight:900;
-color:#0b2948;
-}
-
-.score-mid small {
+.score small{
 display:block;
 font-size:9px;
 color:var(--muted);
+text-align:center;
 }
 
-.stats {
+.stats{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:12px;
-margin:18px 0 30px;
+gap:11px;
+margin:16px 0 27px;
 }
 
-.stat {
-background:#fff;
-border:1px solid var(--line);
-border-radius:15px;
-padding:17px;
-box-shadow:var(--shadow);
-}
+.stat{padding:14px}
 
-.stat strong {
+.stat strong{
 display:block;
 font-size:25px;
-color:#087bdc;
+color:var(--blue);
 }
 
-.stat span {
-font-size:11px;
+.stat span{
+font-size:10px;
 color:var(--muted);
 }
 
-.grid {
+.grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:14px;
+gap:13px;
 }
 
-.card {
-background:#fff;
-border:1px solid var(--line);
-border-radius:16px;
-overflow:hidden;
-box-shadow:var(--shadow);
-}
+.card{overflow:hidden}
 
-.card-body{padding:16px}
-
-.news-art {
-height:140px;
-background:linear-gradient(135deg,#0a2a4e,#087bdc);
+.art{
+height:125px;
 display:grid;
 place-items:center;
-color:#fff;
-font-size:48px;
-position:relative;
+color:white;
+font-size:43px;
+background:linear-gradient(135deg,#09284b,#087bdc);
 }
 
-.meta {
+.body{padding:14px}
+
+.meta{
 font-size:10px;
-color:#1688d9;
-font-weight:800;
+color:var(--blue);
+font-weight:900;
 }
 
-.card h3 {
-font-size:15px;
+.body h3{
+font-size:14px;
 line-height:1.7;
-margin:7px 0;
+margin:6px 0;
 }
 
-.card p {
-font-size:12px;
-color:var(--muted);
+.body p{
+font-size:11px;
 line-height:1.8;
+color:var(--muted);
 margin:0;
 }
 
-.match-card{padding:17px}
-
-.match-top {
-display:flex;
-justify-content:space-between;
-color:var(--muted);
-font-size:10px;
+.badge{
+display:inline-block;
+border-radius:30px;
+padding:4px 9px;
+font-size:9px;
+font-weight:900;
 }
 
-.match-teams {
+.b-live{background:#fff0f1;color:var(--red)}
+.b-next{background:#eaf4ff;color:#0875ce}
+.b-done{background:#eaf8f2;color:var(--green)}
+.b-active{background:#eaf8f2;color:var(--green)}
+.b-soon{background:#fff6e4;color:var(--gold)}
+
+.tabs{
 display:flex;
-justify-content:space-around;
-align-items:center;
-padding:20px 0 12px;
+gap:7px;
+flex-wrap:wrap;
+margin:0 0 15px;
 }
 
-.match-team {
-text-align:center;
-font-size:12px;
+.tabs button{
+border:1px solid var(--line);
+background:#fff;
+color:#60758b;
+border-radius:9px;
+padding:8px 13px;
+font-size:11px;
 font-weight:800;
 }
 
-.match-team .team-badge {
-width:48px;
-height:48px;
-margin:0 auto 8px;
-font-size:17px;
+.tabs button.active{
+background:var(--blue);
+border-color:var(--blue);
+color:#fff;
 }
 
-.match-score {
-font-size:21px;
+.match{padding:15px}
+
+.matchtop{
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-size:10px;
+color:var(--muted);
+}
+
+.matchteams{
+display:flex;
+align-items:center;
+justify-content:space-around;
+padding:19px 0 13px;
+}
+
+.matchteam{
+text-align:center;
+font-size:11px;
+font-weight:900;
+}
+
+.matchteam i{
+display:grid;
+place-items:center;
+width:45px;
+height:45px;
+margin:0 auto 7px;
+border-radius:13px;
+background:#eaf4fc;
+color:#0875ce;
+font-style:normal;
+font-size:18px;
+}
+
+.matchscore{
+font-size:22px;
 font-weight:900;
 color:#0b2948;
 }
 
-.match-foot {
+.matchfoot{
 border-top:1px solid var(--line);
-padding-top:10px;
+padding-top:9px;
 text-align:center;
 color:var(--muted);
 font-size:10px;
 }
 
-.tabs {
+.league{padding:18px}
+
+.leagueTop{
 display:flex;
-gap:8px;
-margin-bottom:16px;
-flex-wrap:wrap;
+justify-content:space-between;
+align-items:center;
 }
 
-.tabs button {
-border:1px solid var(--line);
-background:white;
-border-radius:9px;
-padding:8px 14px;
-color:#62758a;
-font-size:12px;
-font-weight:800;
-}
-
-.tabs button.active {
-background:#087bdc;
-color:#fff;
-border-color:#087bdc;
-}
-
-.empty {
-background:#fff;
-border:1px dashed #c7d9e8;
-border-radius:15px;
-text-align:center;
-padding:35px;
-color:var(--muted);
-font-size:13px;
-}
-
-.empty b {
-display:block;
-color:#183b5e;
+.league h3{
+margin:10px 0 4px;
 font-size:15px;
-margin-bottom:5px;
 }
 
-.league-banner {
-padding:22px;
-border-radius:17px;
-background:linear-gradient(110deg,#082345,#087bdc);
-color:white;
-margin-bottom:16px;
+.league p{
+font-size:11px;
+color:var(--muted);
+line-height:1.8;
+margin:0 0 10px;
 }
 
-.league-banner h3{margin:0 0 5px}
-
-.league-banner p {
-margin:0;
-color:#d4eaff;
-font-size:12px;
+.leagueInfo{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+font-size:10px;
+color:#587087;
 }
 
-.team-card {
-padding:20px;
-text-align:center;
-}
+.tablebox{overflow:auto}
 
-.team-card .team-badge {
-margin:0 auto 12px;
-width:58px;
-height:58px;
-font-size:21px;
-}
-
-.media-tile {
-height:155px;
-background:linear-gradient(135deg,#082345,#087bdc);
-display:grid;
-place-items:center;
-color:#fff;
-font-size:42px;
-}
-
-.about-box {
-background:#fff;
-border:1px solid var(--line);
-border-radius:18px;
-padding:25px;
-line-height:2;
-color:#52677d;
-}
-
-.about-box h3 {
-color:#0b2948;
-margin-top:0;
-}
-
-.footer {
-background:#06172e;
-color:#d4e6f7;
-padding:28px 5%;
+table{
+border-collapse:collapse;
+width:100%;
+min-width:540px;
 text-align:center;
 font-size:11px;
 }
 
-.footer strong {
-font-size:15px;
+th{
+background:#edf6fd;
+color:#45617b;
+padding:12px;
+}
+
+td{
+padding:12px;
+border-bottom:1px solid #edf2f7;
+}
+
+td:first-child,th:first-child{
+text-align:right;
+padding-right:17px;
+}
+
+.empty{
+background:white;
+border:1px dashed #c7d9e8;
+border-radius:15px;
+text-align:center;
+padding:30px;
+color:var(--muted);
+font-size:12px;
+}
+
+.about{
+padding:23px;
+line-height:2;
+color:#52677d;
+font-size:13px;
+}
+
+.about h3{color:#0b2948;margin-top:0}
+
+.footer{
+background:#06172e;
+color:#d4e6f7;
+padding:27px 5%;
+text-align:center;
+font-size:11px;
+}
+
+.footer strong{
 display:block;
-margin-bottom:6px;
+font-size:15px;
 }
 
 .footer span{color:#91b3d3}
 
-.mobile-bottom{display:none}
+.mobile{display:none}
 
-.transition {
+.transition{
 position:fixed;
 inset:0;
 background:#061a35f5;
@@ -542,89 +566,72 @@ color:white;
 
 .transition.show{display:flex}
 
-.ball {
-font-size:55px;
+.ball{
+font-size:57px;
 animation:spin .65s linear infinite;
 }
 
-.transition p {
-font-size:12px;
-letter-spacing:1px;
-color:#b9d9f5;
-}
-
-@keyframes spin {
+@keyframes spin{
 to{transform:rotate(360deg)}
 }
 
-@media(max-width:760px) {
+.transition p{
+font-size:12px;
+color:#b9d9f5;
+}
 
-.topbar{padding:9px 4%}
+@media(max-width:760px){
 
-.masthead{padding:18px 4% 22px}
-
+.top{padding:8px 4%}
+header{padding:18px 4%}
 .brand h1{font-size:20px}
-
-.crest {
-width:52px;
-height:58px;
-}
-
-.container {
-width:92%;
-margin:20px auto 95px;
-}
-
+.crest{width:51px;height:57px}
 .nav{display:none}
 
-.hero{grid-template-columns:1fr}
-
-.hero-main {
-min-height:245px;
-padding:22px;
+main{
+width:92%;
+margin:19px auto 95px;
 }
 
-.hero-main h2{font-size:24px}
+.hero{grid-template-columns:1fr}
+.heroMain{min-height:225px;padding:21px}
+.heroMain h2{font-size:24px}
 
-.stats {
+.stats{
 grid-template-columns:repeat(2,1fr);
 gap:9px;
 }
 
-.stat{padding:13px}
-
+.stat{padding:12px}
 .stat strong{font-size:22px}
 
-.grid {
+.grid{
 grid-template-columns:1fr 1fr;
-gap:10px;
+gap:9px;
 }
 
-.card-body{padding:12px}
+.art{height:100px}
+.body{padding:11px}
+.body h3{font-size:12px}
+.head h2{font-size:20px}
 
-.news-art{height:110px}
-
-.card h3{font-size:13px}
-
-.section-head h2{font-size:20px}
-
-.mobile-bottom {
+.mobile{
 display:flex;
 position:fixed;
 bottom:0;
 right:0;
 left:0;
-background:#fff;
+background:white;
 border-top:1px solid var(--line);
-z-index:30;
+z-index:40;
 justify-content:space-around;
-padding:7px 3px;
-box-shadow:0 -6px 20px #092b4b0c;
+padding:7px 2px;
+box-shadow:0 -5px 20px #092b4b10;
 }
 
-.mobile-bottom button {
+.mobile button{
 border:0;
-background:transparent;
+background:none;
 color:#74869a;
 font-size:9px;
 font-weight:800;
@@ -632,36 +639,34 @@ display:flex;
 flex-direction:column;
 align-items:center;
 gap:3px;
-min-width:55px;
+min-width:50px;
 }
 
-.mobile-bottom button i {
+.mobile i{
 font-style:normal;
-font-size:19px;
+font-size:18px;
 }
 
-.mobile-bottom button.active{color:#087bdc}
-
+.mobile button.active{color:var(--blue)}
 .footer{padding-bottom:90px}
 
 }
 
-@media(max-width:390px) {
+@media(max-width:390px){
 .grid{grid-template-columns:1fr}
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="app">
-
-<div class="topbar">
+<div class="top">
 <span>منصة رياضية مجتمعية</span>
-<span id="today">اللعوتة الحجاج • AL-LUATAH</span>
+<span id="dateNow">AL-LUATAH SPORTS</span>
 </div>
 
-<header class="masthead">
+<header>
 <div class="brand">
 <div class="crest">⚽</div>
 <div>
@@ -669,115 +674,105 @@ font-size:19px;
 <p>AL-LUATAH SPORTS PLATFORM</p>
 </div>
 </div>
-
-<div class="tagline">
-نبض الرياضة في القرية.. أخبار، مباريات، بطولات وإنجازات
-</div>
+<div class="tagline">من قلب اللعوتة.. الرياضة تجمعنا</div>
 </header>
 
-<div class="nav-wrap">
+<div class="navwrap">
 <nav class="nav" id="desktopNav"></nav>
 </div>
 
-<main class="container">
+<main>
 
 <!-- الرئيسية -->
+
 <section class="page active" id="home">
 
 <div class="hero">
 
-<div class="hero-main">
-<span class="pill">المنصة الرياضية الرسمية</span>
+<div class="heroMain">
+<span class="pill">المركز الرياضي للقرية</span>
+<h2>كل أخبار ومنافسات اللعوتة الحجاج في مكان واحد</h2>
+<p>تابع المباريات المباشرة والنتائج والدوريات وأخبار الفرق واللاعبين.</p>
+<button class="btn" onclick="go('matches')">تابع مركز المباريات ←</button>
+</div>
 
-<h2>كل الحكاية الرياضية.. في مكان واحد</h2>
+<div class="panel">
+<div class="panelTitle">
+مباراة مباشرة
+<span class="live">مباشر الآن</span>
+</div>
 
-<p>
-تابع أخبار الفرق، مواعيد المباريات، نتائج المنافسات،
-والدوريات الرياضية في اللعوتة الحجاج.
+<div class="scoreline">
+<div class="club"><i>ل</i>اللعوتة</div>
+<div class="score">2 - 1<small>الشوط الثاني • 67′</small></div>
+<div class="club"><i>ن</i>النهضة</div>
+</div>
+
+<p style="font-size:10px;color:#7b8da2;text-align:center;margin-top:12px">
+بيانات توضيحية للتجربة وليست نتيجة فعلية
 </p>
-
-<button class="btn" onclick="go('news')">
-استكشف آخر الأخبار ←
-</button>
 </div>
 
-<div class="hero-side">
-<div class="side-title">
-المباراة القادمة
-<span class="live-dot">● قريباً</span>
-</div>
-
-<div class="score">
-
-<div class="team">
-<span class="team-badge">ل</span>
-فريق اللعوتة
-</div>
-
-<div class="score-mid">
-VS
-<small>لم تُحدد النتيجة</small>
-</div>
-
-<div class="team">
-<span class="team-badge">؟</span>
-الفريق المنافس
-</div>
-
-</div>
-
-<div style="text-align:center;padding-top:12px;color:#71869b;font-size:11px">
-سيتم تحديث الموعد عند اعتماده رسمياً
-</div>
-</div>
 </div>
 
 <div class="stats">
-<div class="stat"><strong>—</strong><span>عدد الفرق المسجلة</span></div>
-<div class="stat"><strong>—</strong><span>البطولات النشطة</span></div>
-<div class="stat"><strong>—</strong><span>المباريات القادمة</span></div>
-<div class="stat"><strong>24/7</strong><span>تغطية وأخبار المنصة</span></div>
+<div class="stat"><strong id="activeLeaguesCount">2</strong><span>بطولات نشطة</span></div>
+<div class="stat"><strong id="liveCount">1</strong><span>مباريات مباشرة</span></div>
+<div class="stat"><strong id="finishedCount">3</strong><span>مباريات انتهت</span></div>
+<div class="stat"><strong id="newsCount">4</strong><span>أخبار منشورة</span></div>
 </div>
 
-<div class="section-head">
+<div class="head">
 <div>
-<div class="eyebrow">LATEST UPDATES</div>
-<h2>أحدث الأخبار</h2>
-<p>آخر المستجدات الرياضية في المنطقة</p>
+<div class="eyebrow">LATEST NEWS</div>
+<h2>آخر الأخبار</h2>
+<p>جديد الساحة الرياضية</p>
 </div>
-<button class="btn ghost" onclick="go('news')">كل الأخبار</button>
+<button class="btn light" onclick="go('news')">كل الأخبار</button>
 </div>
 
 <div class="grid" id="homeNews"></div>
 
-<div class="section-head" style="margin-top:30px">
+<div class="head" style="margin-top:27px">
 <div>
-<div class="eyebrow">UPCOMING FIXTURES</div>
-<h2>المباريات القادمة</h2>
+<div class="eyebrow">LIVE CENTER</div>
+<h2>المباريات الآن</h2>
 </div>
-<button class="btn ghost" onclick="go('matches')">جدول المباريات</button>
+<button class="btn light" onclick="go('matches')">مركز المباريات</button>
 </div>
 
-<div class="grid" id="homeMatches"></div>
+<div class="grid" id="homeLive"></div>
+
+<div class="head" style="margin-top:27px">
+<div>
+<div class="eyebrow">TOURNAMENTS</div>
+<h2>البطولات النشطة</h2>
+</div>
+<button class="btn light" onclick="go('leagues')">كل البطولات</button>
+</div>
+
+<div class="grid" id="homeLeagues"></div>
 
 </section>
 
 <!-- الأخبار -->
+
 <section class="page" id="news">
 
-<div class="section-head">
+<div class="head">
 <div>
 <div class="eyebrow">NEWS CENTER</div>
-<h2>المركز الإخباري</h2>
-<p>أخبار الفرق واللاعبين والأنشطة الرياضية</p>
+<h2>الأخبار الرياضية</h2>
+<p>تغطية أخبار الفرق واللاعبين والبطولات</p>
 </div>
 </div>
 
-<div class="tabs">
-<button class="active" onclick="newsFilter('الكل',this)">الكل</button>
-<button onclick="newsFilter('أخبار الفرق',this)">أخبار الفرق</button>
-<button onclick="newsFilter('بطولات',this)">بطولات</button>
-<button onclick="newsFilter('مجتمع',this)">مجتمع رياضي</button>
+<div class="tabs" id="newsTabs">
+<button class="active" onclick="filterNews('الكل',this)">الكل</button>
+<button onclick="filterNews('أخبار الفرق',this)">أخبار الفرق</button>
+<button onclick="filterNews('بطولات',this)">بطولات</button>
+<button onclick="filterNews('نتائج',this)">نتائج</button>
+<button onclick="filterNews('مجتمع',this)">مجتمع رياضي</button>
 </div>
 
 <div class="grid" id="allNews"></div>
@@ -785,183 +780,152 @@ VS
 </section>
 
 <!-- المباريات -->
+
 <section class="page" id="matches">
 
-<div class="section-head">
+<div class="head">
 <div>
 <div class="eyebrow">MATCH CENTER</div>
-<h2>المباريات والنتائج</h2>
-<p>مواعيد المواجهات والنتائج المعتمدة</p>
+<h2>مركز المباريات</h2>
+<p>المباريات المباشرة والقادمة والنتائج السابقة</p>
 </div>
 </div>
 
-<div class="tabs">
-<button class="active" onclick="matchFilter('الكل',this)">كل المباريات</button>
-<button onclick="matchFilter('قادمة',this)">قادمة</button>
-<button onclick="matchFilter('مكتملة',this)">مكتملة</button>
+<div class="tabs" id="matchTabs">
+<button class="active" onclick="filterMatches('الكل',this)">كل المباريات</button>
+<button onclick="filterMatches('مباشرة',this)">مباشرة الآن</button>
+<button onclick="filterMatches('قادمة',this)">قادمة</button>
+<button onclick="filterMatches('انتهت',this)">انتهت</button>
 </div>
 
 <div class="grid" id="allMatches"></div>
 
 </section>
 
-<!-- الدوريات -->
+<!-- البطولات -->
+
 <section class="page" id="leagues">
 
-<div class="section-head">
+<div class="head">
 <div>
-<div class="eyebrow">TOURNAMENTS</div>
+<div class="eyebrow">LEAGUES & CUPS</div>
 <h2>الدوريات والبطولات</h2>
-<p>مواعيد الانطلاق، اللوائح، والترتيب</p>
+<p>تابع حالة كل بطولة ومواعيدها ونظامها</p>
 </div>
 </div>
 
-<div class="league-banner">
-<h3>موسم اللعوتة الرياضي</h3>
-<p>
-مساحة مخصصة للدوريات والبطولات المحلية
-— ستُضاف تفاصيل الموسم بعد اعتمادها.
-</p>
+<div class="tabs" id="leagueTabs">
+<button class="active" onclick="filterLeagues('الكل',this)">كل البطولات</button>
+<button onclick="filterLeagues('نشطة',this)">نشطة</button>
+<button onclick="filterLeagues('قادمة',this)">قادمة</button>
+<button onclick="filterLeagues('منتهية',this)">منتهية</button>
 </div>
 
-<div class="grid">
+<div class="grid" id="allLeagues"></div>
 
-<div class="card card-body">
-<div class="meta">حالة البطولة</div>
-<h3>الدوريات القادمة</h3>
-<p>
-لا توجد بطولة معلنة حالياً. ستظهر هنا تفاصيل البطولة
-وموعد البداية ونظام المنافسة.
-</p>
-</div>
-
-<div class="card card-body">
-<div class="meta">الترتيب</div>
-<h3>جدول النقاط</h3>
-<p>
-سيتم عرض ترتيب الفرق والنقاط والأهداف بعد تسجيل الفرق
-ونتائج المباريات.
-</p>
-</div>
-
-<div class="card card-body">
-<div class="meta">اللوائح</div>
-<h3>قوانين المنافسات</h3>
-<p>
-مكان لنشر شروط التسجيل، نظام البطولة، العقوبات،
-ومواعيد الاجتماعات الفنية.
-</p>
-</div>
-
-</div>
-
-<div class="section-head" style="margin-top:28px">
+<div class="head" style="margin-top:25px">
 <div>
-<h2>جدول الترتيب</h2>
-<p>بيانات فارغة لحين بدء المنافسة</p>
+<h2>جدول ترتيب الدوري</h2>
+<p>جدول تجريبي</p>
 </div>
 </div>
 
-<div class="empty">
-<b>لم يبدأ أي دوري بعد</b>
-سيظهر جدول الترتيب هنا فور اعتماد أول بطولة وإضافة نتائجها.
+<div class="tablebox">
+<table>
+<thead>
+<tr>
+<th>الفريق</th>
+<th>لعب</th>
+<th>فاز</th>
+<th>تعادل</th>
+<th>خسر</th>
+<th>النقاط</th>
+</tr>
+</thead>
+<tbody id="standings"></tbody>
+</table>
 </div>
 
 </section>
 
 <!-- الفرق -->
+
 <section class="page" id="teams">
-
-<div class="section-head">
+<div class="head">
 <div>
-<div class="eyebrow">CLUBS & TEAMS</div>
+<div class="eyebrow">TEAMS DIRECTORY</div>
 <h2>الفرق والأندية</h2>
-<p>دليل الفرق الرياضية في اللعوتة الحجاج</p>
+<p>دليل الفرق المشاركة في النشاط الرياضي</p>
 </div>
 </div>
-
-<div class="empty">
-<b>دليل الفرق قيد التجهيز</b>
-ستُضاف أسماء الفرق وشعاراتها وألوانها وبيانات التواصل
-وسجل المشاركات.
-</div>
-
+<div class="grid" id="teamList"></div>
 </section>
 
 <!-- اللاعبون -->
+
 <section class="page" id="players">
-
-<div class="section-head">
+<div class="head">
 <div>
-<div class="eyebrow">PLAYER PROFILES</div>
-<h2>نجوم ومواهب</h2>
-<p>ملفات اللاعبين وإحصائياتهم</p>
+<div class="eyebrow">PLAYERS</div>
+<h2>اللاعبون والنجوم</h2>
+<p>تعريف بالمواهب واللاعبين</p>
 </div>
 </div>
-
-<div class="empty">
-<b>مساحة نجوم القرية</b>
-ملفات تعريفية للاعبين، المراكز، الأرقام، المشاركات، والأهداف.
-</div>
-
+<div class="grid" id="playerList"></div>
 </section>
 
 <!-- الوسائط -->
-<section class="page" id="media">
 
-<div class="section-head">
+<section class="page" id="media">
+<div class="head">
 <div>
 <div class="eyebrow">MEDIA GALLERY</div>
 <h2>مكتبة الصور والفيديو</h2>
-<p>توثيق المباريات والبطولات والفعاليات</p>
+<p>أرشيف التغطيات واللقطات الرياضية</p>
 </div>
 </div>
 
 <div class="grid">
 
-<div class="card">
-<div class="media-tile">▣</div>
-<div class="card-body">
-<h3>ألبوم المباريات</h3>
-<p>صور المواجهات واللقطات المميزة.</p>
+<article class="card">
+<div class="art">▣</div>
+<div class="body">
+<h3>صور المباريات</h3>
+<p>ألبومات توثيقية للمواجهات والفعاليات.</p>
 </div>
-</div>
+</article>
 
-<div class="card">
-<div class="media-tile">▶</div>
-<div class="card-body">
-<h3>الفيديوهات</h3>
-<p>الأهداف والملخصات والتغطيات.</p>
+<article class="card">
+<div class="art">▶</div>
+<div class="body">
+<h3>ملخصات الفيديو</h3>
+<p>الأهداف وأبرز اللقطات والتغطيات.</p>
 </div>
-</div>
+</article>
 
-<div class="card">
-<div class="media-tile">🏆</div>
-<div class="card-body">
-<h3>أرشيف البطولات</h3>
-<p>توثيق الكؤوس والإنجازات الرياضية.</p>
+<article class="card">
+<div class="art">🏆</div>
+<div class="body">
+<h3>أرشيف الكؤوس</h3>
+<p>توثيق البطولات والإنجازات التاريخية.</p>
 </div>
-</div>
+</article>
 
 </div>
-
 </section>
 
 <!-- عن المنصة -->
+
 <section class="page" id="about">
-
-<div class="section-head">
+<div class="head">
 <div>
-<div class="eyebrow">ABOUT THE PLATFORM</div>
+<div class="eyebrow">ABOUT US</div>
 <h2>عن المنصة</h2>
-<p>هوية رياضية تجمع أهل المنطقة ومحبيها</p>
 </div>
 </div>
 
-<div class="about-box">
-
+<div class="about">
 <h3>اللعوتة الحجاج | AL-LUATAH</h3>
-
 <p>
 منصة رياضية مجتمعية تهدف إلى توثيق الحركة الرياضية
 في قرية اللعوتة الحجاج، ونقل أخبار الفرق واللاعبين،
@@ -974,48 +938,27 @@ VS
 وإبراز المواهب والإنجازات، وتوفير مرجع موحد
 لكل المهتمين بالرياضة في المنطقة.
 </p>
-
-<h3>أقسام المنصة</h3>
-
-<p>
-الأخبار • المباريات • الدوريات • الفرق • اللاعبون
-• الصور والفيديو • الأرشيف الرياضي.
-</p>
-
 </div>
-
 </section>
 
 <!-- التواصل -->
+
 <section class="page" id="contact">
-
-<div class="section-head">
+<div class="head">
 <div>
-<div class="eyebrow">GET IN TOUCH</div>
-<h2>تواصل معنا</h2>
-<p>لإرسال الأخبار والنتائج والصور والتغطيات</p>
+<div class="eyebrow">CONTACT</div>
+<h2>تواصل مع المنصة</h2>
+<p>أرسل الأخبار والنتائج والصور لإضافتها</p>
 </div>
 </div>
 
-<div class="about-box">
-
+<div class="about">
 <h3>ساهم في توثيق رياضة اللعوتة</h3>
-
-<p>
-يمكنك مشاركة أخبار الفرق، نتائج المباريات،
-مواعيد المنافسات، صور الفعاليات، أو تصحيح أي معلومة منشورة.
-</p>
-
+<p>بيانات التواصل الرسمية ستضاف عند اعتمادها من إدارة المنصة.</p>
+<p><b>واتساب:</b> يضاف لاحقاً</p>
+<p><b>فيسبوك:</b> يضاف لاحقاً</p>
 <p><b>البريد الإلكتروني:</b> يضاف لاحقاً</p>
-<p><b>واتساب المنصة:</b> يضاف لاحقاً</p>
-<p><b>الصفحات الرسمية:</b> تضاف عند إطلاقها</p>
-
-<button class="btn" onclick="alert('سيتم تفعيل قنوات التواصل بعد إضافة بيانات الإدارة.')">
-إرسال مساهمة
-</button>
-
 </div>
-
 </section>
 
 </main>
@@ -1024,14 +967,11 @@ VS
 <strong>اللعوتة الحجاج الرياضية</strong>
 <span>AL-LUATAH SPORTS PLATFORM</span>
 <p>من قلب اللعوتة.. الرياضة تجمعنا</p>
-<span>© 2026 جميع الحقوق محفوظة للمنصة</span>
+<span>© 2026 جميع الحقوق محفوظة</span>
 </footer>
 
-<nav class="mobile-bottom" id="mobileNav"></nav>
+<nav class="mobile" id="mobileNav"></nav>
 
-</div>
-
-<!-- شاشة انتقال كرة القدم -->
 <div class="transition" id="transition">
 <div class="ball">⚽</div>
 <p>جاري تجهيز الملعب...</p>
@@ -1039,12 +979,13 @@ VS
 
 <script>
 
-// واجهات الموقع
-const pages = [
+// الواجهات
+
+const pages=[
 ['home','الرئيسية','⌂'],
 ['news','الأخبار','▤'],
 ['matches','المباريات','⚽'],
-['leagues','الدوريات','🏆'],
+['leagues','البطولات','🏆'],
 ['teams','الفرق','♧'],
 ['players','اللاعبون','♙'],
 ['media','الوسائط','▣'],
@@ -1052,28 +993,19 @@ const pages = [
 ['contact','تواصل','✉']
 ];
 
-// إنشاء القوائم
-function navMarkup(){
-return pages.map(([id,label,ico]) =>
-`<button data-page="${id}" onclick="go('${id}')">
-${ico} &nbsp;${label}
-</button>`
+document.getElementById('desktopNav').innerHTML=
+pages.map(([id,n,ic])=>
+`<button data-page="${id}" onclick="go('${id}')">${ic} ${n}</button>`
 ).join('');
-}
-
-document.getElementById('desktopNav').innerHTML=navMarkup();
 
 document.getElementById('mobileNav').innerHTML=
-pages.slice(0,5).map(([id,label,ico]) =>
-`<button data-page="${id}" onclick="go('${id}')">
-<i>${ico}</i>${label}
-</button>`
+pages.slice(0,5).map(([id,n,ic])=>
+`<button data-page="${id}" onclick="go('${id}')"><i>${ic}</i>${n}</button>`
 ).join('');
 
-// الانتقال بين الصفحات مع تأثير الكرة
-function go(id){
+// التنقل بين الواجهات
 
-if(!document.getElementById(id))return;
+function go(id){
 
 const t=document.getElementById('transition');
 
@@ -1081,153 +1013,217 @@ t.classList.add('show');
 
 setTimeout(()=>{
 
-document.querySelectorAll('.page').forEach(p=>{
-p.classList.remove('active');
-});
+document.querySelectorAll('.page').forEach(p=>
+p.classList.remove('active')
+);
 
 document.getElementById(id).classList.add('active');
 
-document.querySelectorAll('[data-page]').forEach(b=>{
-b.classList.toggle('active',b.dataset.page===id);
-});
+document.querySelectorAll('[data-page]').forEach(b=>
+b.classList.toggle('active',b.dataset.page===id)
+);
 
 window.scrollTo({top:0,behavior:'instant'});
 
 t.classList.remove('show');
 
-},650);
+},550);
 
 }
 
-// بيانات الأخبار التجريبية
+// الأخبار
+
 const news=[
 
 {
 cat:'أخبار الفرق',
-date:'تحديث تجريبي',
-title:'منصة اللعوتة الحجاج.. نافذة واحدة لكل أخبار الرياضة',
-desc:'هنا تُنشر أخبار الفرق والأنشطة الرياضية فور ورودها واعتمادها.',
+date:'اليوم • مثال تجريبي',
+title:'اللعوتة تستعد لمواجهة قوية في منافسات المنطقة',
+desc:'تقرير تجريبي عن استعدادات الفريق والتحضيرات الفنية قبل المواجهة القادمة.',
 icon:'⚽'
 },
 
 {
 cat:'بطولات',
-date:'قريباً',
-title:'استعدادات لإطلاق تغطية الدوريات المحلية',
-desc:'تابع تفاصيل البطولات ومواعيد التسجيل والانطلاق عبر مركز الدوريات.',
+date:'أمس • مثال تجريبي',
+title:'انطلاق منافسات دوري اللعوتة بمشاركة عدد من الفرق',
+desc:'تغطية تجريبية لأجواء افتتاح الدوري وجدول مبارياته والفرق المشاركة.',
 icon:'🏆'
 },
 
 {
+cat:'نتائج',
+date:'أمس • مثال تجريبي',
+title:'النهضة يحسم مواجهة مثيرة بهدف دون مقابل',
+desc:'نتيجة توضيحية ضمن بيانات العرض التجريبي للمنصة.',
+icon:'📊'
+},
+
+{
 cat:'مجتمع',
-date:'أرشيف',
-title:'نوثق تاريخ الرياضة ومواهب أبناء المنطقة',
-desc:'مساحة لحفظ الصور والذكريات والإنجازات الرياضية للأجيال القادمة.',
-icon:'📸'
+date:'هذا الأسبوع • مثال تجريبي',
+title:'مبادرة لتكريم المواهب الرياضية الشابة',
+desc:'مساحة للأخبار المجتمعية والمبادرات التي تدعم الرياضة في القرية.',
+icon:'🌟'
 }
 
 ];
 
-// بيانات المباريات التجريبية
+// المباريات
+
 const matches=[
 
 {
 home:'اللعوتة',
-away:'الفريق المنافس',
-date:'يُحدد لاحقاً',
-time:'يُحدد لاحقاً',
+away:'النهضة',
+date:'اليوم',
+time:'الشوط الثاني • 67',
 place:'ملعب القرية',
-status:'قادمة',
-score:'— : —'
+status:'مباشرة',
+score:'2 - 1'
 },
 
 {
-home:'فريق القرية',
-away:'ضيف القرية',
-date:'بانتظار الجدولة',
-time:'—',
-place:'يُحدد لاحقاً',
+home:'البحيرة',
+away:'التضامن',
+date:'غداً',
+time:'04:30 مساءً',
+place:'ملعب اللعوتة',
 status:'قادمة',
-score:'— : —'
+score:'VS'
+},
+
+{
+home:'الموردة',
+away:'النهضة',
+date:'بعد غد',
+time:'05:00 مساءً',
+place:'ملعب القرية',
+status:'قادمة',
+score:'VS'
+},
+
+{
+home:'اللعوتة',
+away:'الموردة',
+date:'أمس',
+time:'انتهت المباراة',
+place:'ملعب القرية',
+status:'انتهت',
+score:'1 - 0'
+},
+
+{
+home:'التضامن',
+away:'البحيرة',
+date:'قبل يومين',
+time:'انتهت المباراة',
+place:'ملعب القرية',
+status:'انتهت',
+score:'2 - 2'
+},
+
+{
+home:'النهضة',
+away:'البحيرة',
+date:'قبل 3 أيام',
+time:'انتهت المباراة',
+place:'ملعب القرية',
+status:'انتهت',
+score:'0 - 1'
 }
 
 ];
 
-// تصميم بطاقات الأخبار
+// البطولات
+
+const leagues=[
+
+{
+name:'دوري اللعوتة العام',
+state:'نشطة',
+start:'بدأت هذا الأسبوع',
+end:'موعد الختام يحدد لاحقاً',
+teams:'6 فرق',
+desc:'منافسة تجريبية بنظام الدوري من دور واحد.',
+icon:'🏆'
+},
+
+{
+name:'كأس القرية',
+state:'قادمة',
+start:'يبدأ قريباً',
+end:'سيعلن الموعد الرسمي',
+teams:'8 فرق مستهدفة',
+desc:'بطولة خروج المغلوب بمشاركة فرق القرية.',
+icon:'🥇'
+},
+
+{
+name:'دوري الناشئين',
+state:'نشطة',
+start:'مرحلة المجموعات',
+end:'النهائي يحدد لاحقاً',
+teams:'4 فرق',
+desc:'مسابقة مخصصة لاكتشاف المواهب الشابة.',
+icon:'⚽'
+},
+
+{
+name:'كأس الموسم السابق',
+state:'منتهية',
+start:'انطلقت سابقاً',
+end:'اختتمت الموسم الماضي',
+teams:'6 فرق',
+desc:'بطولة أرشيفية لحفظ سجل المنافسات.',
+icon:'🏅'
+}
+
+];
+
+// الفرق
+
+const teams=[
+['اللعوتة','ل','الأزرق والأبيض'],
+['النهضة','ن','الأخضر والأبيض'],
+['البحيرة','ب','الأزرق'],
+['التضامن','ت','الأحمر والأبيض'],
+['الموردة','م','الأصفر والأسود'],
+['الشباب','ش','الأخضر']
+];
+
+// اللاعبون
+
+const players=[
+['يوسف محمد يوسف','مهاجم','اللعوتة'],
+['محمد الإمام','وسط','اللعوتة'],
+['عليوه','مدافع','الموردة'],
+['التنو','مهاجم','الموردة'],
+['خالد العبيد','حارس مرمى','التضامن'],
+['عبد الرحمن سعد','مدافع','البحيرة']
+];
+
+// بطاقة الخبر
+
 function newsCard(n){
 
 return `
 <article class="card">
-
-<div class="news-art">${n.icon}</div>
-
-<div class="card-body">
-
-<div class="meta">
-${n.cat} &nbsp; • &nbsp; ${n.date}
-</div>
-
+<div class="art">${n.icon}</div>
+<div class="body">
+<div class="meta">${n.cat} • ${n.date}</div>
 <h3>${n.title}</h3>
-
 <p>${n.desc}</p>
-
 </div>
 </article>
 `;
 
 }
 
-// تصميم بطاقات المباريات
+// بطاقة المباراة
+
 function matchCard(m){
 
-return `
-<article class="card match-card">
-
-<div class="match-top">
-<span>${m.date}</span>
-<span>${m.status}</span>
-</div>
-
-<div class="match-teams">
-
-<div class="match-team">
-<div class="team-badge">${m.home[0]}</div>
-${m.home}
-</div>
-
-<div class="match-score">${m.score}</div>
-
-<div class="match-team">
-<div class="team-badge">${m.away[0]}</div>
-${m.away}
-</div>
-
-</div>
-
-<div class="match-foot">
-${m.time} &nbsp; • &nbsp; ${m.place}
-</div>
-
-</article>
-`;
-
-}
-
-// عرض البيانات
-document.getElementById('homeNews').innerHTML=
-news.slice(0,3).map(newsCard).join('');
-
-document.getElementById('allNews').innerHTML=
-news.map(newsCard).join('');
-
-document.getElementById('homeMatches').innerHTML=
-matches.slice(0,2).map(matchCard).join('');
-
-document.getElementById('allMatches').innerHTML=
-matches.map(matchCard).join('');
-
-// تصنيف الأخبار
-function newsFilter(cat,btn){
-
-document.querySelectorAll('#news .tabs button')
-.
+let cls=
+m.status==='مباشرة'?'b-live':
+m.status==='قادمة'?'b-n
