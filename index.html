@@ -3,664 +3,1231 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#092c20">
-<title>بنك الأمان | AL AMAN BANK</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#071b36">
+<title>اللعوتة الحجاج | المنصة الرياضية</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
- font-family:'Cairo',sans-serif;
- background:#f2f5f3;color:#17251e;
- min-height:100vh
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+--navy:#071b36;
+--navy2:#0b2b50;
+--blue:#087bdc;
+--cyan:#32c5f4;
+--white:#fff;
+--muted:#7b8da2;
+--line:#e3edf5;
+--shadow:0 14px 40px #0b315014;
 }
-button,input{font-family:inherit}
-button{cursor:pointer}
-:root{--g:#0b3827;--g2:#14563b;--gold:#d5b46a}
-.hidden{display:none!important}
-header{
- background:var(--g);color:white;padding:17px 5%;
- display:flex;align-items:center;justify-content:space-between;
- box-shadow:0 3px 15px #0002
+
+*{box-sizing:border-box}
+
+body {
+margin:0;
+background:#f4f8fc;
+color:#132b45;
+font-family:'Cairo',sans-serif;
 }
-.logo{display:flex;align-items:center;gap:12px}
-.logo-icon{
- width:43px;height:43px;border:1px solid #d5b46a;
- border-radius:12px;display:grid;place-items:center;
- color:var(--gold);font-size:23px;font-weight:900
+
+button{font:inherit;cursor:pointer}
+
+.topbar {
+background:var(--navy);
+color:#fff;
+padding:10px 5%;
+display:flex;
+justify-content:space-between;
+font-size:12px;
 }
-.logo h2{font-size:19px;font-weight:900}
-.logo small{display:block;color:var(--gold);font-size:10px}
-.header-right{font-size:12px;color:#d6e5dc}
-.container{max-width:1050px;margin:auto;padding:30px 18px}
-.login-wrap{
- max-width:430px;margin:65px auto;background:white;
- padding:30px;border-radius:18px;
- box-shadow:0 8px 35px #0000000c
+
+.masthead {
+background:linear-gradient(115deg,#071b36,#0b3968);
+color:#fff;
+padding:22px 5% 26px;
+position:relative;
+overflow:hidden;
 }
-.login-wrap h2{text-align:center;color:var(--g);margin-bottom:8px}
-.sub{text-align:center;color:#7b8980;font-size:12px;margin-bottom:24px}
-.field{margin:14px 0}
-.field label{display:block;font-size:12px;font-weight:800;margin-bottom:7px}
-.field input{
- width:100%;padding:13px;border:1px solid #e0e7e2;
- border-radius:9px;outline:none;background:#fafcfb;font-size:14px
+
+.masthead:after {
+content:"";
+position:absolute;
+width:420px;
+height:420px;
+border:1px solid #ffffff12;
+border-radius:50%;
+left:-100px;
+top:-260px;
+box-shadow:0 0 0 35px #ffffff08,0 0 0 75px #ffffff05;
 }
-.field input:focus{border-color:var(--g2)}
-.btn{
- border:0;background:var(--g);color:white;
- padding:13px;border-radius:9px;font-weight:800;
- width:100%;transition:.2s
+
+.brand {
+display:flex;
+align-items:center;
+gap:14px;
+position:relative;
+z-index:1;
 }
-.btn:hover{background:var(--g2)}
-.btn.gold{background:var(--gold);color:#14231c}
-.switch{text-align:center;margin-top:17px;font-size:12px;color:#718078}
-.switch a{color:var(--g2);font-weight:900;cursor:pointer}
-.notice{
- padding:12px;background:#fff6e3;color:#85631d;
- border-radius:9px;font-size:11px;line-height:1.9;margin-bottom:18px
+
+.crest {
+width:60px;
+height:66px;
+display:grid;
+place-items:center;
+background:linear-gradient(145deg,#fff,#cdeaff);
+color:#073467;
+clip-path:polygon(50% 0,94% 12%,90% 72%,50% 100%,10% 72%,6% 12%);
+font-size:28px;
 }
-.dashboard-head{
- background:linear-gradient(120deg,#092c20,#176143);
- color:white;border-radius:18px;padding:27px;margin-bottom:22px;
- position:relative;overflow:hidden
+
+.brand h1 {
+font-size:24px;
+margin:0;
+font-weight:900;
 }
-.dashboard-head:after{
- content:"";position:absolute;width:190px;height:190px;
- border:1px solid #ffffff20;border-radius:50%;
- left:-55px;top:-70px
+
+.brand p {
+margin:3px 0 0;
+color:#b8d7f2;
+font-size:12px;
+letter-spacing:1.4px;
+direction:ltr;
+text-align:right;
 }
-.welcome{font-size:13px;color:#d0e2d7}
-.username{font-size:23px;font-weight:900;margin:5px 0 17px}
-.balance-label{font-size:12px;color:#d0e2d7}
-.balance{font-size:34px;font-weight:900;color:var(--gold)}
-.account-info{display:flex;gap:22px;flex-wrap:wrap;margin-top:15px}
-.account-info span{font-size:11px;color:#d5e4db}
-.account-info strong{color:white}
-.section-title{font-size:18px;color:var(--g);font-weight:900;margin:25px 0 14px}
-.services{
- display:grid;grid-template-columns:repeat(5,1fr);gap:12px
+
+.tagline {
+margin:20px 0 0;
+color:#d8eaff;
+font-size:13px;
 }
-.service{
- background:white;border-radius:14px;padding:18px 9px;
- text-align:center;box-shadow:0 3px 15px #00000008;
- border:1px solid #edf0ed;transition:.2s
+
+.nav-wrap {
+background:#fff;
+box-shadow:0 5px 20px #092b4b0c;
+position:sticky;
+top:0;
+z-index:20;
 }
-.service:hover{transform:translateY(-3px);border-color:#c8d7ce}
-.service .ico{
- width:46px;height:46px;border-radius:13px;
- background:#eaf2eb;color:var(--g);
- display:grid;place-items:center;font-size:23px;margin:0 auto 10px
+
+.nav {
+display:flex;
+gap:5px;
+padding:8px 4%;
+overflow:auto;
+scrollbar-width:none;
 }
-.service strong{font-size:12px;display:block}
-.service small{font-size:10px;color:#849087}
-.service.disabled{opacity:.7}
-.panel{
- background:white;padding:22px;border-radius:15px;
- box-shadow:0 3px 18px #00000008;margin-top:20px
+
+.nav button {
+border:0;
+background:transparent;
+color:#62758a;
+padding:10px 15px;
+border-radius:10px;
+white-space:nowrap;
+font-size:13px;
+font-weight:700;
 }
-.panel h3{font-size:16px;color:var(--g);margin-bottom:16px}
-.row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.result{
- background:#edf5ef;padding:14px;border-radius:10px;
- color:var(--g);margin:14px 0;font-size:13px;line-height:2
+
+.nav button.active,
+.nav button:hover {
+background:#eaf5ff;
+color:#0875ce;
 }
-.muted{font-size:11px;color:#87928b;line-height:1.8}
-.error{background:#fff0ef;color:#b52f28;padding:12px;border-radius:9px;font-size:12px;margin:12px 0}
-.success{background:#edf8ef;color:#176b3c;padding:12px;border-radius:9px;font-size:12px;margin:12px 0}
-.history-item{
- border-bottom:1px solid #edf0ed;padding:14px 0;
- display:flex;justify-content:space-between;gap:12px;font-size:12px
+
+.container {
+width:min(1160px,92%);
+margin:28px auto 70px;
 }
-.history-item:last-child{border:0}
-.plus{color:#15834b;font-weight:900}
-.minus{color:#bd4238;font-weight:900}
-.empty{text-align:center;color:#9aa39c;padding:25px;font-size:13px}
-footer{text-align:center;padding:25px;color:#89958d;font-size:11px}
-.modal-bg{
- position:fixed;inset:0;background:#0008;z-index:2000;
- display:grid;place-items:center;padding:15px
+
+.page {
+display:none;
+animation:fade .35s ease;
 }
-.modal{
- background:white;width:100%;max-width:440px;border-radius:17px;
- padding:25px;max-height:90vh;overflow:auto
+
+.page.active{display:block}
+
+@keyframes fade {
+from{opacity:0;transform:translateY(8px)}
+to{opacity:1;transform:none}
 }
-.receipt{
- border:1px dashed #b5c5b9;padding:18px;border-radius:12px;
- margin:15px 0;line-height:2.1;font-size:13px
+
+.section-head {
+display:flex;
+justify-content:space-between;
+align-items:end;
+margin:0 0 18px;
+gap:12px;
 }
-.receipt h2{text-align:center;color:var(--g);margin-bottom:10px}
-.receipt .amount{text-align:center;font-size:28px;font-weight:900;color:var(--g)}
-@media(max-width:650px){
- .services{grid-template-columns:repeat(2,1fr)}
- .service:first-child{grid-column:span 2}
- .dashboard-head{padding:22px}
- .balance{font-size:29px}
- header{padding:13px 15px}
- .header-right{font-size:10px}
+
+.eyebrow {
+color:#1688d9;
+font-size:11px;
+font-weight:900;
+letter-spacing:1px;
+}
+
+.section-head h2 {
+font-size:23px;
+margin:3px 0 0;
+color:#0b2948;
+}
+
+.section-head p {
+margin:3px 0 0;
+color:var(--muted);
+font-size:12px;
+}
+
+.btn {
+border:0;
+background:var(--blue);
+color:#fff;
+padding:10px 16px;
+border-radius:10px;
+font-size:12px;
+font-weight:800;
+}
+
+.btn.ghost {
+background:#eaf4fc;
+color:#0875ce;
+}
+
+.hero {
+display:grid;
+grid-template-columns:1.4fr .8fr;
+gap:16px;
+margin-bottom:28px;
+}
+
+.hero-main {
+min-height:285px;
+border-radius:20px;
+padding:28px;
+color:white;
+position:relative;
+overflow:hidden;
+background:
+linear-gradient(115deg,#061a35dd,#075ca9c9),
+radial-gradient(circle at 75% 20%,#2cc6ff,transparent 30%),
+linear-gradient(130deg,#0b2c52,#087bdc);
+}
+
+.hero-main:after {
+content:"⚽";
+position:absolute;
+left:4%;
+bottom:-45px;
+font-size:190px;
+opacity:.12;
+transform:rotate(-18deg);
+}
+
+.pill {
+display:inline-block;
+background:#ffffff20;
+border:1px solid #ffffff35;
+border-radius:30px;
+padding:5px 11px;
+font-size:11px;
+}
+
+.hero-main h2 {
+font-size:30px;
+line-height:1.5;
+max-width:520px;
+margin:20px 0 8px;
+position:relative;
+z-index:1;
+}
+
+.hero-main p {
+color:#d5eaff;
+font-size:13px;
+max-width:440px;
+line-height:1.9;
+}
+
+.hero-side {
+background:#fff;
+border:1px solid var(--line);
+border-radius:20px;
+padding:20px;
+box-shadow:var(--shadow);
+}
+
+.side-title {
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-weight:900;
+margin-bottom:14px;
+}
+
+.live-dot{color:#e34b59;font-size:11px}
+
+.score {
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:13px 0;
+border-bottom:1px solid var(--line);
+gap:8px;
+}
+
+.team {
+display:flex;
+align-items:center;
+gap:8px;
+font-size:12px;
+font-weight:800;
+}
+
+.team-badge {
+width:34px;
+height:34px;
+border-radius:11px;
+background:#eaf4fc;
+color:#0875ce;
+display:grid;
+place-items:center;
+font-weight:900;
+}
+
+.score-mid {
+text-align:center;
+font-weight:900;
+color:#0b2948;
+}
+
+.score-mid small {
+display:block;
+font-size:9px;
+color:var(--muted);
+}
+
+.stats {
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+margin:18px 0 30px;
+}
+
+.stat {
+background:#fff;
+border:1px solid var(--line);
+border-radius:15px;
+padding:17px;
+box-shadow:var(--shadow);
+}
+
+.stat strong {
+display:block;
+font-size:25px;
+color:#087bdc;
+}
+
+.stat span {
+font-size:11px;
+color:var(--muted);
+}
+
+.grid {
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px;
+}
+
+.card {
+background:#fff;
+border:1px solid var(--line);
+border-radius:16px;
+overflow:hidden;
+box-shadow:var(--shadow);
+}
+
+.card-body{padding:16px}
+
+.news-art {
+height:140px;
+background:linear-gradient(135deg,#0a2a4e,#087bdc);
+display:grid;
+place-items:center;
+color:#fff;
+font-size:48px;
+position:relative;
+}
+
+.meta {
+font-size:10px;
+color:#1688d9;
+font-weight:800;
+}
+
+.card h3 {
+font-size:15px;
+line-height:1.7;
+margin:7px 0;
+}
+
+.card p {
+font-size:12px;
+color:var(--muted);
+line-height:1.8;
+margin:0;
+}
+
+.match-card{padding:17px}
+
+.match-top {
+display:flex;
+justify-content:space-between;
+color:var(--muted);
+font-size:10px;
+}
+
+.match-teams {
+display:flex;
+justify-content:space-around;
+align-items:center;
+padding:20px 0 12px;
+}
+
+.match-team {
+text-align:center;
+font-size:12px;
+font-weight:800;
+}
+
+.match-team .team-badge {
+width:48px;
+height:48px;
+margin:0 auto 8px;
+font-size:17px;
+}
+
+.match-score {
+font-size:21px;
+font-weight:900;
+color:#0b2948;
+}
+
+.match-foot {
+border-top:1px solid var(--line);
+padding-top:10px;
+text-align:center;
+color:var(--muted);
+font-size:10px;
+}
+
+.tabs {
+display:flex;
+gap:8px;
+margin-bottom:16px;
+flex-wrap:wrap;
+}
+
+.tabs button {
+border:1px solid var(--line);
+background:white;
+border-radius:9px;
+padding:8px 14px;
+color:#62758a;
+font-size:12px;
+font-weight:800;
+}
+
+.tabs button.active {
+background:#087bdc;
+color:#fff;
+border-color:#087bdc;
+}
+
+.empty {
+background:#fff;
+border:1px dashed #c7d9e8;
+border-radius:15px;
+text-align:center;
+padding:35px;
+color:var(--muted);
+font-size:13px;
+}
+
+.empty b {
+display:block;
+color:#183b5e;
+font-size:15px;
+margin-bottom:5px;
+}
+
+.league-banner {
+padding:22px;
+border-radius:17px;
+background:linear-gradient(110deg,#082345,#087bdc);
+color:white;
+margin-bottom:16px;
+}
+
+.league-banner h3{margin:0 0 5px}
+
+.league-banner p {
+margin:0;
+color:#d4eaff;
+font-size:12px;
+}
+
+.team-card {
+padding:20px;
+text-align:center;
+}
+
+.team-card .team-badge {
+margin:0 auto 12px;
+width:58px;
+height:58px;
+font-size:21px;
+}
+
+.media-tile {
+height:155px;
+background:linear-gradient(135deg,#082345,#087bdc);
+display:grid;
+place-items:center;
+color:#fff;
+font-size:42px;
+}
+
+.about-box {
+background:#fff;
+border:1px solid var(--line);
+border-radius:18px;
+padding:25px;
+line-height:2;
+color:#52677d;
+}
+
+.about-box h3 {
+color:#0b2948;
+margin-top:0;
+}
+
+.footer {
+background:#06172e;
+color:#d4e6f7;
+padding:28px 5%;
+text-align:center;
+font-size:11px;
+}
+
+.footer strong {
+font-size:15px;
+display:block;
+margin-bottom:6px;
+}
+
+.footer span{color:#91b3d3}
+
+.mobile-bottom{display:none}
+
+.transition {
+position:fixed;
+inset:0;
+background:#061a35f5;
+z-index:100;
+display:none;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+color:white;
+}
+
+.transition.show{display:flex}
+
+.ball {
+font-size:55px;
+animation:spin .65s linear infinite;
+}
+
+.transition p {
+font-size:12px;
+letter-spacing:1px;
+color:#b9d9f5;
+}
+
+@keyframes spin {
+to{transform:rotate(360deg)}
+}
+
+@media(max-width:760px) {
+
+.topbar{padding:9px 4%}
+
+.masthead{padding:18px 4% 22px}
+
+.brand h1{font-size:20px}
+
+.crest {
+width:52px;
+height:58px;
+}
+
+.container {
+width:92%;
+margin:20px auto 95px;
+}
+
+.nav{display:none}
+
+.hero{grid-template-columns:1fr}
+
+.hero-main {
+min-height:245px;
+padding:22px;
+}
+
+.hero-main h2{font-size:24px}
+
+.stats {
+grid-template-columns:repeat(2,1fr);
+gap:9px;
+}
+
+.stat{padding:13px}
+
+.stat strong{font-size:22px}
+
+.grid {
+grid-template-columns:1fr 1fr;
+gap:10px;
+}
+
+.card-body{padding:12px}
+
+.news-art{height:110px}
+
+.card h3{font-size:13px}
+
+.section-head h2{font-size:20px}
+
+.mobile-bottom {
+display:flex;
+position:fixed;
+bottom:0;
+right:0;
+left:0;
+background:#fff;
+border-top:1px solid var(--line);
+z-index:30;
+justify-content:space-around;
+padding:7px 3px;
+box-shadow:0 -6px 20px #092b4b0c;
+}
+
+.mobile-bottom button {
+border:0;
+background:transparent;
+color:#74869a;
+font-size:9px;
+font-weight:800;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:3px;
+min-width:55px;
+}
+
+.mobile-bottom button i {
+font-style:normal;
+font-size:19px;
+}
+
+.mobile-bottom button.active{color:#087bdc}
+
+.footer{padding-bottom:90px}
+
+}
+
+@media(max-width:390px) {
+.grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 
 <body>
 
-<header>
- <div class="logo">
-  <div class="logo-icon">أ</div>
-  <div>
-   <h2>بنك الأمان</h2>
-   <small>AL AMAN BANK</small>
-  </div>
- </div>
- <div class="header-right" id="headerStatus">الخدمات المصرفية الرقمية</div>
+<div class="app">
+
+<div class="topbar">
+<span>منصة رياضية مجتمعية</span>
+<span id="today">اللعوتة الحجاج • AL-LUATAH</span>
+</div>
+
+<header class="masthead">
+<div class="brand">
+<div class="crest">⚽</div>
+<div>
+<h1>اللعوتة الحجاج</h1>
+<p>AL-LUATAH SPORTS PLATFORM</p>
+</div>
+</div>
+
+<div class="tagline">
+نبض الرياضة في القرية.. أخبار، مباريات، بطولات وإنجازات
+</div>
 </header>
 
-<!-- تسجيل الدخول -->
-<div id="loginPage" class="container">
- <div class="login-wrap">
-  <h2>مرحباً بك في بنك الأمان</h2>
-  <p class="sub">بوابتك للخدمات المصرفية الرقمية التجريبية</p>
-
-  <div class="notice">
-   نظام محاكاة تجريبي. الأرصدة والتحويلات ليست أموالاً حقيقية.
-  </div>
-
-  <div class="field">
-   <label>رقم الهاتف</label>
-   <input id="loginPhone" type="tel" placeholder="أدخل رقم هاتفك">
-  </div>
-  <div class="field">
-   <label>الرقم السري</label>
-   <input id="loginPin" type="password" placeholder="أدخل الرقم السري">
-  </div>
-  <button class="btn" onclick="login()">تسجيل الدخول</button>
-
-  <p class="switch">ليس لديك حساب؟ <a onclick="showRegister()">افتح حساباً جديداً</a></p>
-  <p class="muted" style="text-align:center;margin-top:20px">
-   هذا نموذج تجريبي ولا يمثل مؤسسة مصرفية حقيقية.
-  </p>
- </div>
+<div class="nav-wrap">
+<nav class="nav" id="desktopNav"></nav>
 </div>
 
-<!-- التسجيل -->
-<div id="registerPage" class="container hidden">
- <div class="login-wrap">
-  <h2>فتح حساب جديد</h2>
-  <p class="sub">أنشئ حسابك التجريبي في بنك الأمان</p>
+<main class="container">
 
-  <div class="field">
-   <label>الاسم الرباعي</label>
-   <input id="regName" placeholder="الاسم الكامل">
-  </div>
-  <div class="field">
-   <label>رقم الهاتف</label>
-   <input id="regPhone" type="tel" placeholder="رقم الهاتف">
-  </div>
-  <div class="field">
-   <label>الرقم السري (4 أرقام على الأقل)</label>
-   <input id="regPin" type="password" placeholder="أنشئ رقماً سرياً">
-  </div>
-  <div class="field">
-   <label>تأكيد الرقم السري</label>
-   <input id="regPin2" type="password" placeholder="أعد كتابة الرقم السري">
-  </div>
+<!-- الرئيسية -->
+<section class="page active" id="home">
 
-  <div id="regMessage"></div>
+<div class="hero">
 
-  <div class="notice">
-   ستحصل على رقم حساب تلقائي ورصيد ترحيبي تجريبي بقيمة 5,000 جنيه.
-  </div>
+<div class="hero-main">
+<span class="pill">المنصة الرياضية الرسمية</span>
 
-  <button class="btn" onclick="register()">إنشاء الحساب</button>
-  <p class="switch">لديك حساب؟ <a onclick="showLogin()">تسجيل الدخول</a></p>
- </div>
+<h2>كل الحكاية الرياضية.. في مكان واحد</h2>
+
+<p>
+تابع أخبار الفرق، مواعيد المباريات، نتائج المنافسات،
+والدوريات الرياضية في اللعوتة الحجاج.
+</p>
+
+<button class="btn" onclick="go('news')">
+استكشف آخر الأخبار ←
+</button>
 </div>
 
-<!-- الصفحة الرئيسية -->
-<div id="appPage" class="container hidden">
+<div class="hero-side">
+<div class="side-title">
+المباراة القادمة
+<span class="live-dot">● قريباً</span>
+</div>
 
- <section class="dashboard-head">
-  <div class="welcome">مرحباً بك في بنك الأمان</div>
-  <div class="username" id="dashName">حمزة</div>
-  <div class="balance-label">رصيدك الحالي التجريبي</div>
-  <div class="balance"><span id="balance">0</span> <small style="font-size:13px">جنيه</small></div>
-  <div class="account-info">
-   <span>رقم الحساب: <strong id="accountNumber"></strong></span>
-   <span>رقم الهاتف: <strong id="accountPhone"></strong></span>
-  </div>
- </section>
+<div class="score">
 
- <h3 class="section-title">الخدمات المصرفية</h3>
+<div class="team">
+<span class="team-badge">ل</span>
+فريق اللعوتة
+</div>
 
- <div class="services">
-  <button class="service" onclick="openTransfer()">
-   <div class="ico">⇄</div>
-   <strong>تحويل الأموال</strong>
-   <small>حساب إلى حساب</small>
-  </button>
+<div class="score-mid">
+VS
+<small>لم تُحدد النتيجة</small>
+</div>
 
-  <button class="service" onclick="showHistory()">
-   <div class="ico">▤</div>
-   <strong>كشف الحساب</strong>
-   <small>العمليات السابقة</small>
-  </button>
-
-  <button class="service disabled" onclick="comingSoon()">
-   <div class="ico">▣</div>
-   <strong>البطاقات</strong>
-   <small>قريباً</small>
-  </button>
-
-  <button class="service disabled" onclick="comingSoon()">
-   <div class="ico">◈</div>
-   <strong>الخدمات</strong>
-   <small>قريباً</small>
-  </button>
-
-  <button class="service disabled" onclick="comingSoon()">
-   <div class="ico">⚙</div>
-   <strong>الإعدادات</strong>
-   <small>قريباً</small>
-  </button>
- </div>
-
- <div id="transferPanel" class="panel hidden">
-  <div class="row">
-   <h3>تحويل الأموال</h3>
-   <button onclick="closePanels()" style="border:0;background:none;color:#888">✕ إغلاق</button>
-  </div>
-
-  <div class="field">
-   <label>رقم حساب المستفيد</label>
-   <input id="receiverNumber" type="number" placeholder="أدخل رقم الحساب">
-  </div>
-  <button class="btn" onclick="verifyReceiver()">التحقق من الحساب</button>
-
-  <div id="receiverResult"></div>
- </div>
-
- <div id="historyPanel" class="panel hidden">
-  <div class="row">
-   <h3>كشف الحساب</h3>
-   <button onclick="closePanels()" style="border:0;background:none;color:#888">✕ إغلاق</button>
-  </div>
-  <div class="row muted" style="margin-bottom:15px">
-   <span>جميع عمليات حسابك</span>
-   <span id="historyCount"></span>
-  </div>
-  <div id="historyList"></div>
- </div>
-
- <div id="quickNotice" class="panel">
-  <h3>إشعارات البنك</h3>
-  <p class="muted">مرحباً بك في بنك الأمان. نتمنى لك تجربة مصرفية تجريبية مميزة وآمنة.</p>
- </div>
-
- <div style="margin-top:25px">
-  <button class="btn" style="background:#7c3933" onclick="logout()">تسجيل الخروج</button>
- </div>
+<div class="team">
+<span class="team-badge">؟</span>
+الفريق المنافس
+</div>
 
 </div>
 
-<footer>
- بنك الأمان | AL AMAN BANK<br>
- نظام مصرفي تجريبي - جميع الأرصدة والعمليات افتراضية
+<div style="text-align:center;padding-top:12px;color:#71869b;font-size:11px">
+سيتم تحديث الموعد عند اعتماده رسمياً
+</div>
+</div>
+</div>
+
+<div class="stats">
+<div class="stat"><strong>—</strong><span>عدد الفرق المسجلة</span></div>
+<div class="stat"><strong>—</strong><span>البطولات النشطة</span></div>
+<div class="stat"><strong>—</strong><span>المباريات القادمة</span></div>
+<div class="stat"><strong>24/7</strong><span>تغطية وأخبار المنصة</span></div>
+</div>
+
+<div class="section-head">
+<div>
+<div class="eyebrow">LATEST UPDATES</div>
+<h2>أحدث الأخبار</h2>
+<p>آخر المستجدات الرياضية في المنطقة</p>
+</div>
+<button class="btn ghost" onclick="go('news')">كل الأخبار</button>
+</div>
+
+<div class="grid" id="homeNews"></div>
+
+<div class="section-head" style="margin-top:30px">
+<div>
+<div class="eyebrow">UPCOMING FIXTURES</div>
+<h2>المباريات القادمة</h2>
+</div>
+<button class="btn ghost" onclick="go('matches')">جدول المباريات</button>
+</div>
+
+<div class="grid" id="homeMatches"></div>
+
+</section>
+
+<!-- الأخبار -->
+<section class="page" id="news">
+
+<div class="section-head">
+<div>
+<div class="eyebrow">NEWS CENTER</div>
+<h2>المركز الإخباري</h2>
+<p>أخبار الفرق واللاعبين والأنشطة الرياضية</p>
+</div>
+</div>
+
+<div class="tabs">
+<button class="active" onclick="newsFilter('الكل',this)">الكل</button>
+<button onclick="newsFilter('أخبار الفرق',this)">أخبار الفرق</button>
+<button onclick="newsFilter('بطولات',this)">بطولات</button>
+<button onclick="newsFilter('مجتمع',this)">مجتمع رياضي</button>
+</div>
+
+<div class="grid" id="allNews"></div>
+
+</section>
+
+<!-- المباريات -->
+<section class="page" id="matches">
+
+<div class="section-head">
+<div>
+<div class="eyebrow">MATCH CENTER</div>
+<h2>المباريات والنتائج</h2>
+<p>مواعيد المواجهات والنتائج المعتمدة</p>
+</div>
+</div>
+
+<div class="tabs">
+<button class="active" onclick="matchFilter('الكل',this)">كل المباريات</button>
+<button onclick="matchFilter('قادمة',this)">قادمة</button>
+<button onclick="matchFilter('مكتملة',this)">مكتملة</button>
+</div>
+
+<div class="grid" id="allMatches"></div>
+
+</section>
+
+<!-- الدوريات -->
+<section class="page" id="leagues">
+
+<div class="section-head">
+<div>
+<div class="eyebrow">TOURNAMENTS</div>
+<h2>الدوريات والبطولات</h2>
+<p>مواعيد الانطلاق، اللوائح، والترتيب</p>
+</div>
+</div>
+
+<div class="league-banner">
+<h3>موسم اللعوتة الرياضي</h3>
+<p>
+مساحة مخصصة للدوريات والبطولات المحلية
+— ستُضاف تفاصيل الموسم بعد اعتمادها.
+</p>
+</div>
+
+<div class="grid">
+
+<div class="card card-body">
+<div class="meta">حالة البطولة</div>
+<h3>الدوريات القادمة</h3>
+<p>
+لا توجد بطولة معلنة حالياً. ستظهر هنا تفاصيل البطولة
+وموعد البداية ونظام المنافسة.
+</p>
+</div>
+
+<div class="card card-body">
+<div class="meta">الترتيب</div>
+<h3>جدول النقاط</h3>
+<p>
+سيتم عرض ترتيب الفرق والنقاط والأهداف بعد تسجيل الفرق
+ونتائج المباريات.
+</p>
+</div>
+
+<div class="card card-body">
+<div class="meta">اللوائح</div>
+<h3>قوانين المنافسات</h3>
+<p>
+مكان لنشر شروط التسجيل، نظام البطولة، العقوبات،
+ومواعيد الاجتماعات الفنية.
+</p>
+</div>
+
+</div>
+
+<div class="section-head" style="margin-top:28px">
+<div>
+<h2>جدول الترتيب</h2>
+<p>بيانات فارغة لحين بدء المنافسة</p>
+</div>
+</div>
+
+<div class="empty">
+<b>لم يبدأ أي دوري بعد</b>
+سيظهر جدول الترتيب هنا فور اعتماد أول بطولة وإضافة نتائجها.
+</div>
+
+</section>
+
+<!-- الفرق -->
+<section class="page" id="teams">
+
+<div class="section-head">
+<div>
+<div class="eyebrow">CLUBS & TEAMS</div>
+<h2>الفرق والأندية</h2>
+<p>دليل الفرق الرياضية في اللعوتة الحجاج</p>
+</div>
+</div>
+
+<div class="empty">
+<b>دليل الفرق قيد التجهيز</b>
+ستُضاف أسماء الفرق وشعاراتها وألوانها وبيانات التواصل
+وسجل المشاركات.
+</div>
+
+</section>
+
+<!-- اللاعبون -->
+<section class="page" id="players">
+
+<div class="section-head">
+<div>
+<div class="eyebrow">PLAYER PROFILES</div>
+<h2>نجوم ومواهب</h2>
+<p>ملفات اللاعبين وإحصائياتهم</p>
+</div>
+</div>
+
+<div class="empty">
+<b>مساحة نجوم القرية</b>
+ملفات تعريفية للاعبين، المراكز، الأرقام، المشاركات، والأهداف.
+</div>
+
+</section>
+
+<!-- الوسائط -->
+<section class="page" id="media">
+
+<div class="section-head">
+<div>
+<div class="eyebrow">MEDIA GALLERY</div>
+<h2>مكتبة الصور والفيديو</h2>
+<p>توثيق المباريات والبطولات والفعاليات</p>
+</div>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="media-tile">▣</div>
+<div class="card-body">
+<h3>ألبوم المباريات</h3>
+<p>صور المواجهات واللقطات المميزة.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="media-tile">▶</div>
+<div class="card-body">
+<h3>الفيديوهات</h3>
+<p>الأهداف والملخصات والتغطيات.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="media-tile">🏆</div>
+<div class="card-body">
+<h3>أرشيف البطولات</h3>
+<p>توثيق الكؤوس والإنجازات الرياضية.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- عن المنصة -->
+<section class="page" id="about">
+
+<div class="section-head">
+<div>
+<div class="eyebrow">ABOUT THE PLATFORM</div>
+<h2>عن المنصة</h2>
+<p>هوية رياضية تجمع أهل المنطقة ومحبيها</p>
+</div>
+</div>
+
+<div class="about-box">
+
+<h3>اللعوتة الحجاج | AL-LUATAH</h3>
+
+<p>
+منصة رياضية مجتمعية تهدف إلى توثيق الحركة الرياضية
+في قرية اللعوتة الحجاج، ونقل أخبار الفرق واللاعبين،
+وتنظيم المعلومات المتعلقة بالمباريات والدوريات والبطولات،
+وحفظ الذاكرة الرياضية للأجيال.
+</p>
+
+<p>
+نسعى إلى تقديم محتوى رياضي موثوق ومنظم،
+وإبراز المواهب والإنجازات، وتوفير مرجع موحد
+لكل المهتمين بالرياضة في المنطقة.
+</p>
+
+<h3>أقسام المنصة</h3>
+
+<p>
+الأخبار • المباريات • الدوريات • الفرق • اللاعبون
+• الصور والفيديو • الأرشيف الرياضي.
+</p>
+
+</div>
+
+</section>
+
+<!-- التواصل -->
+<section class="page" id="contact">
+
+<div class="section-head">
+<div>
+<div class="eyebrow">GET IN TOUCH</div>
+<h2>تواصل معنا</h2>
+<p>لإرسال الأخبار والنتائج والصور والتغطيات</p>
+</div>
+</div>
+
+<div class="about-box">
+
+<h3>ساهم في توثيق رياضة اللعوتة</h3>
+
+<p>
+يمكنك مشاركة أخبار الفرق، نتائج المباريات،
+مواعيد المنافسات، صور الفعاليات، أو تصحيح أي معلومة منشورة.
+</p>
+
+<p><b>البريد الإلكتروني:</b> يضاف لاحقاً</p>
+<p><b>واتساب المنصة:</b> يضاف لاحقاً</p>
+<p><b>الصفحات الرسمية:</b> تضاف عند إطلاقها</p>
+
+<button class="btn" onclick="alert('سيتم تفعيل قنوات التواصل بعد إضافة بيانات الإدارة.')">
+إرسال مساهمة
+</button>
+
+</div>
+
+</section>
+
+</main>
+
+<footer class="footer">
+<strong>اللعوتة الحجاج الرياضية</strong>
+<span>AL-LUATAH SPORTS PLATFORM</span>
+<p>من قلب اللعوتة.. الرياضة تجمعنا</p>
+<span>© 2026 جميع الحقوق محفوظة للمنصة</span>
 </footer>
 
-<!-- نافذة الإشعار -->
-<div id="modalBg" class="modal-bg hidden">
- <div class="modal" id="modalContent"></div>
+<nav class="mobile-bottom" id="mobileNav"></nav>
+
+</div>
+
+<!-- شاشة انتقال كرة القدم -->
+<div class="transition" id="transition">
+<div class="ball">⚽</div>
+<p>جاري تجهيز الملعب...</p>
 </div>
 
 <script>
-const STORAGE_KEY = "alaman_demo_database_v1";
-const SESSION_KEY = "alaman_demo_session";
 
-const FIXED_ACCOUNT = {
- number:"3922406",
- name:"حمزة بهاءالدين سليمان الأمان"
-};
+// واجهات الموقع
+const pages = [
+['home','الرئيسية','⌂'],
+['news','الأخبار','▤'],
+['matches','المباريات','⚽'],
+['leagues','الدوريات','🏆'],
+['teams','الفرق','♧'],
+['players','اللاعبون','♙'],
+['media','الوسائط','▣'],
+['about','عن المنصة','ⓘ'],
+['contact','تواصل','✉']
+];
 
-function loadDB(){
- try{
-  const data=JSON.parse(localStorage.getItem(STORAGE_KEY));
-  if(data && data.accounts && data.transactions) return data;
- }catch(e){}
- return {
-  accounts:{
-   "3922406":{
-    number:"3922406",
-    name:FIXED_ACCOUNT.name,
-    phone:"حساب تجريبي ثابت",
-    pin:"",
-    balance:0,
-    created:new Date().toISOString()
-   }
-  },
-  transactions:[],
-  nextAccount:5000,
-  nextTransaction:2000000000
- };
+// إنشاء القوائم
+function navMarkup(){
+return pages.map(([id,label,ico]) =>
+`<button data-page="${id}" onclick="go('${id}')">
+${ico} &nbsp;${label}
+</button>`
+).join('');
 }
 
-let db=loadDB();
+document.getElementById('desktopNav').innerHTML=navMarkup();
 
-function saveDB(){
- localStorage.setItem(STORAGE_KEY,JSON.stringify(db));
+document.getElementById('mobileNav').innerHTML=
+pages.slice(0,5).map(([id,label,ico]) =>
+`<button data-page="${id}" onclick="go('${id}')">
+<i>${ico}</i>${label}
+</button>`
+).join('');
+
+// الانتقال بين الصفحات مع تأثير الكرة
+function go(id){
+
+if(!document.getElementById(id))return;
+
+const t=document.getElementById('transition');
+
+t.classList.add('show');
+
+setTimeout(()=>{
+
+document.querySelectorAll('.page').forEach(p=>{
+p.classList.remove('active');
+});
+
+document.getElementById(id).classList.add('active');
+
+document.querySelectorAll('[data-page]').forEach(b=>{
+b.classList.toggle('active',b.dataset.page===id);
+});
+
+window.scrollTo({top:0,behavior:'instant'});
+
+t.classList.remove('show');
+
+},650);
+
 }
 
-if(!db.accounts["3922406"]){
- db.accounts["3922406"]={
-  number:"3922406",name:FIXED_ACCOUNT.name,
-  phone:"حساب تجريبي ثابت",pin:"",balance:0,
-  created:new Date().toISOString()
- };
- saveDB();
+// بيانات الأخبار التجريبية
+const news=[
+
+{
+cat:'أخبار الفرق',
+date:'تحديث تجريبي',
+title:'منصة اللعوتة الحجاج.. نافذة واحدة لكل أخبار الرياضة',
+desc:'هنا تُنشر أخبار الفرق والأنشطة الرياضية فور ورودها واعتمادها.',
+icon:'⚽'
+},
+
+{
+cat:'بطولات',
+date:'قريباً',
+title:'استعدادات لإطلاق تغطية الدوريات المحلية',
+desc:'تابع تفاصيل البطولات ومواعيد التسجيل والانطلاق عبر مركز الدوريات.',
+icon:'🏆'
+},
+
+{
+cat:'مجتمع',
+date:'أرشيف',
+title:'نوثق تاريخ الرياضة ومواهب أبناء المنطقة',
+desc:'مساحة لحفظ الصور والذكريات والإنجازات الرياضية للأجيال القادمة.',
+icon:'📸'
 }
 
-let currentUser=null;
-let verifiedReceiver=null;
+];
 
-function el(id){return document.getElementById(id)}
+// بيانات المباريات التجريبية
+const matches=[
 
-function showOnly(page){
- ["loginPage","registerPage","appPage"].forEach(id=>el(id).classList.add("hidden"));
- el(page).classList.remove("hidden");
+{
+home:'اللعوتة',
+away:'الفريق المنافس',
+date:'يُحدد لاحقاً',
+time:'يُحدد لاحقاً',
+place:'ملعب القرية',
+status:'قادمة',
+score:'— : —'
+},
+
+{
+home:'فريق القرية',
+away:'ضيف القرية',
+date:'بانتظار الجدولة',
+time:'—',
+place:'يُحدد لاحقاً',
+status:'قادمة',
+score:'— : —'
 }
 
-function showRegister(){
- showOnly("registerPage");
- el("regMessage").innerHTML="";
+];
+
+// تصميم بطاقات الأخبار
+function newsCard(n){
+
+return `
+<article class="card">
+
+<div class="news-art">${n.icon}</div>
+
+<div class="card-body">
+
+<div class="meta">
+${n.cat} &nbsp; • &nbsp; ${n.date}
+</div>
+
+<h3>${n.title}</h3>
+
+<p>${n.desc}</p>
+
+</div>
+</article>
+`;
+
 }
 
-function showLogin(){showOnly("loginPage")}
+// تصميم بطاقات المباريات
+function matchCard(m){
 
-function register(){
- const name=el("regName").value.trim();
- const phone=el("regPhone").value.trim();
- const pin=el("regPin").value;
- const pin2=el("regPin2").value;
+return `
+<article class="card match-card">
 
- if(name.split(/\s+/).length<4){
-  el("regMessage").innerHTML='<div class="error">يرجى إدخال الاسم الرباعي كاملاً.</div>';
-  return;
- }
- if(phone.length<7){
-  el("regMessage").innerHTML='<div class="error">رقم الهاتف غير صحيح.</div>';
-  return;
- }
- if(pin.length<4){
-  el("regMessage").innerHTML='<div class="error">الرقم السري يجب أن يكون 4 خانات على الأقل.</div>';
-  return;
- }
- if(pin!==pin2){
-  el("regMessage").innerHTML='<div class="error">الرقمان السريان غير متطابقين.</div>';
-  return;
- }
- if(Object.values(db.accounts).some(a=>a.phone===phone)){
-  el("regMessage").innerHTML='<div class="error">رقم الهاتف مسجل مسبقاً.</div>';
-  return;
- }
+<div class="match-top">
+<span>${m.date}</span>
+<span>${m.status}</span>
+</div>
 
- const number=String(db.nextAccount++);
- db.accounts[number]={
-  number,name,phone,pin,
-  balance:5000,
-  created:new Date().toISOString()
- };
+<div class="match-teams">
 
- saveDB();
- currentUser=number;
- localStorage.setItem(SESSION_KEY,number);
- openDashboard();
+<div class="match-team">
+<div class="team-badge">${m.home[0]}</div>
+${m.home}
+</div>
 
- showModal(`
-  <h2 style="text-align:center;color:#14563b">تم فتح الحساب!</h2>
-  <div class="receipt">
-   <h2>بنك الأمان</h2>
-   <p>صاحب الحساب: ${safe(name)}</p>
-   <p>رقم الحساب: <strong>${number}</strong></p>
-   <p>رصيد الترحيب: <strong>5,000 جنيه</strong></p>
-   <p>الحالة: حساب تجريبي نشط</p>
-  </div>
-  <button class="btn" onclick="closeModal()">متابعة</button>
- `);
+<div class="match-score">${m.score}</div>
+
+<div class="match-team">
+<div class="team-badge">${m.away[0]}</div>
+${m.away}
+</div>
+
+</div>
+
+<div class="match-foot">
+${m.time} &nbsp; • &nbsp; ${m.place}
+</div>
+
+</article>
+`;
+
 }
 
-function login(){
- const phone=el("loginPhone").value.trim();
- const pin=el("loginPin").value;
- const account=Object.values(db.accounts).find(
-  a=>a.phone===phone && a.pin===pin
- );
+// عرض البيانات
+document.getElementById('homeNews').innerHTML=
+news.slice(0,3).map(newsCard).join('');
 
- if(!account){
-  alert("بيانات الدخول غير صحيحة أو الحساب غير موجود.");
-  return;
- }
- currentUser=account.number;
- localStorage.setItem(SESSION_KEY,currentUser);
- openDashboard();
-}
+document.getElementById('allNews').innerHTML=
+news.map(newsCard).join('');
 
-function openDashboard(){
- const account=db.accounts[currentUser];
- if(!account){showLogin();return}
- showOnly("appPage");
- el("dashName").textContent=account.name;
- el("balance").textContent=Number(account.balance).toLocaleString("en-US");
- el("accountNumber").textContent=account.number;
- el("accountPhone").textContent=account.phone;
- el("headerStatus").textContent="الحساب التجريبي";
- closePanels();
-}
+document.getElementById('homeMatches').innerHTML=
+matches.slice(0,2).map(matchCard).join('');
 
-function logout(){
- currentUser=null;
- localStorage.removeItem(SESSION_KEY);
- showLogin();
- el("headerStatus").textContent="الخدمات المصرفية الرقمية";
-}
+document.getElementById('allMatches').innerHTML=
+matches.map(matchCard).join('');
 
-function openTransfer(){
- closePanels();
- el("transferPanel").classList.remove("hidden");
- el("receiverNumber").value="";
- el("receiverResult").innerHTML="";
- verifiedReceiver=null;
-}
+// تصنيف الأخبار
+function newsFilter(cat,btn){
 
-function closePanels(){
- el("transferPanel").classList.add("hidden");
- el("historyPanel").classList.add("hidden");
- el("quickNotice").classList.remove("hidden");
-}
-
-function verifyReceiver(){
- const number=el("receiverNumber").value.trim();
- const receiver=db.accounts[number];
-
- if(!number || !receiver){
-  verifiedReceiver=null;
-  el("receiverResult").innerHTML='<div class="error">عذراً، لا يوجد حساب بهذا الرقم.</div>';
-  return;
- }
- if(number===currentUser){
-  verifiedReceiver=null;
-  el("receiverResult").innerHTML='<div class="error">لا يمكنك التحويل إلى حسابك نفسه.</div>';
-  return;
- }
-
- verifiedReceiver=number;
- el("receiverResult").innerHTML=`
-  <div class="result">
-   <strong>تم العثور على الحساب</strong><br>
-   اسم المستفيد: <strong>${safe(receiver.name)}</strong><br>
-   رقم الحساب: ${number}
-  </div>
-
-  <div class="field">
-   <label>المبلغ المراد تحويله (جنيه)</label>
-   <input id="transferAmount" type="number" min="1" placeholder="أدخل المبلغ">
-  </div>
-  <div class="field">
-   <label>تأكيد الرقم السري</label>
-   <input id="transferPin" type="password" placeholder="أدخل الرقم السري">
-  </div>
-  <button class="btn gold" onclick="confirmTransfer()">تأكيد التحويل</button>
- `;
-}
-
-function confirmTransfer(){
- if(!verifiedReceiver || !db.accounts[verifiedReceiver]){
-  alert("يرجى التحقق من حساب المستفيد أولاً.");
-  return;
- }
-
- const amount=Number(el("transferAmount").value);
- const pin=el("transferPin").value;
- const sender=db.accounts[currentUser];
- const receiver=db.accounts[verifiedReceiver];
-
- if(!Number.isFinite(amount) || amount<=0){
-  alert("يرجى إدخال مبلغ صحيح.");
-  return;
- }
- if(!Number.isInteger(amount)){
-  alert("المبلغ يجب أن يكون عدداً صحيحاً.");
-  return;
- }
- if(pin!==sender.pin){
-  alert("الرقم السري غير صحيح.");
-  return;
- }
- if(sender.balance<amount){
-  alert("الرصيد غير كافٍ لإتمام العملية.");
-  return;
- }
-
- if(db.nextTransaction>9999999999){
-  alert("انتهى نطاق أرقام المعاملات التجريبية.");
-  return;
- }
-
- const txNumber=String(db.nextTransaction++);
- const now=new Date();
- const date=now.toLocaleDateString("ar-EG");
- const time=now.toLocaleTimeString("ar-EG");
-
- sender.balance-=amount;
- receiver.balance+=amount;
-
- const tx={
-  id:txNumber,
-  from:sender.number,
-  fromName:sender.name,
-  to:receiver.number,
-  toName:receiver.name,
-  amount,
-  date,time,
-  timestamp:now.toISOString(),
-  type:"transfer"
- };
-
- db.transactions.push(tx);
- saveDB();
- openDashboard();
-
- showModal(`
-  <div style="text-align:center">
-   <div style="font-size:48px;color:#16834c">✓</div>
-   <h2 style="color:#14563b">تم التحويل بنجاح</h2>
-   <p class="muted">تم تنفيذ العملية في النظام التجريبي</p>
-  </div>
-
-  <div class="receipt">
-   <h2>إشعار تحويل</h2>
-   <div class="amount">${amount.toLocaleString("en-US")} جنيه</div>
-   <hr style="border:0;border-top:1px dashed #bbb;margin:12px 0">
-   <p>رقم المعاملة: <strong>${txNumber}</strong></p>
-   <p>من حساب: ${safe(sender.number)}</p>
-   <p>اسم المرسل: ${safe(sender.name)}</p>
-   <p>إلى حساب: ${safe(receiver.number)}</p>
-   <p>اسم المستفيد: ${safe(receiver.name)}</p>
-   <p>التاريخ: ${date}</p>
-   <p>الوقت: ${time}</p>
-   <p style="color:#16834c;font-weight:900">حالة العملية: ناجحة تجريبياً</p>
-  </div>
-  <button class="btn" onclick="closeModal()">إنهاء</button>
- `);
-}
-
-function showHistory(){
- closePanels();
- el("historyPanel").classList.remove("hidden");
- el("quickNotice").classList.add("hidden");
-
- const list=db.transactions.filter(
-  t=>t.from===currentUser || t.to===currentUser
- ).sort((a,b)=>b.timestamp.localeCompare(a.timestamp));
-
- el("historyCount").textContent=list.length+" عملية";
- if(!list.length){
-  el("historyList").innerHTML='<div class="empty">لا توجد معاملات حتى الآن.</div>';
-  return;
- }
-
- el("historyList").innerHTML=list.map(t=>{
-  const outgoing=t.from===currentUser;
-  return `
-   <div class="history-item">
-    <div>
-     <strong>${outgoing?"تحويل صادر":"تحويل وارد"}</strong>
-     <div class="muted">${outgoing?"إلى: "+safe(t.toName):"من: "+safe(t.fromName)}</div>
-     <div class="muted">${t.date} - ${t.time}</div>
-     <div class="muted">رقم العملية: ${t.id}</div>
-    </div>
-    <div class="${outgoing?"minus":"plus"}">
-     ${outgoing?"-":"+"}${Number(t.amount).toLocaleString("en-US")} جنيه
-    </div>
-   </div>
-  `;
- }).join("");
-}
-
-function comingSoon(){
- showModal(`
-  <div style="text-align:center;padding:15px">
-   <div style="font-size:40px">◈</div>
-   <h2 style="color:#14563b">قريباً</h2>
-   <p class="muted" style="margin:12px">هذه الخدمة ستكون متاحة في تحديث قادم.</p>
-   <button class="btn" onclick="closeModal()">حسناً</button>
-  </div>
- `);
-}
-
-function showModal(content){
- el("modalContent").innerHTML=content;
- el("modalBg").classList.remove("hidden");
-}
-function closeModal(){el("modalBg").classList.add("hidden")}
-
-function safe(value){
- return String(value).replace(/[&<>"']/g,c=>({
-  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
- }[c]));
-}
-
-// استعادة الحساب عند إعادة فتح الصفحة
-(function init(){
- saveDB();
- const session=localStorage.getItem(SESSION_KEY);
- if(session && db.accounts[session]){
-  currentUser=session;
-  openDashboard();
- }else{
-  showLogin();
- }
-})();
-</script>
-
-</body>
-</html>
+document.querySelectorAll('#news .tabs button')
+.
