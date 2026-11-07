@@ -3,350 +3,520 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>اللعوتة الحجاج | المنصة الرياضية</title>
+<title>GOAL ZONE | عالم كرة القدم</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
-:root{
- --bg:#f3f6fb;--card:#fff;--text:#14233d;--muted:#78869c;
- --primary:#1264d8;--dark:#09264d;--line:#e6edf5;
- --green:#16a36a;--red:#e34b58;--shadow:0 8px 28px #18365b0d;
+:root {
+ --bg:#080d12;
+ --panel:#111a22;
+ --panel2:#17232d;
+ --green:#b5f34d;
+ --text:#f4f7fa;
+ --muted:#8996a3;
+ --line:#26333e;
+ --red:#ff515e;
 }
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:'Cairo',sans-serif}
-button,input,textarea,select{font-family:inherit}
-button{cursor:pointer}
-header{background:linear-gradient(120deg,#071d3b,#1055a5);color:white;padding:20px 5%;position:relative;overflow:hidden}
-.header-inner{max-width:1250px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:15px}
-.brand{display:flex;align-items:center;gap:13px}
-.logo{width:54px;height:54px;border-radius:16px;background:#ffffff18;border:1px solid #ffffff35;display:grid;place-items:center;font-size:27px}
-.brand h1{font-size:20px;margin:0;font-weight:900}
-.brand p{font-size:11px;color:#c5d9f5;margin:3px 0 0}
-.header-tag{font-size:12px;background:#ffffff17;border:1px solid #ffffff30;padding:8px 13px;border-radius:30px}
-.hero{max-width:1250px;margin:28px auto 0;padding:25px 0 35px;position:relative}
-.hero h2{font-size:clamp(25px,4vw,40px);margin:0 0 10px;font-weight:900}
-.hero p{color:#c8dcf6;margin:0;max-width:580px;font-size:14px}
-.hero-stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:23px}
-.hero-stat{background:#ffffff12;border:1px solid #ffffff25;border-radius:12px;padding:10px 17px;font-size:12px}
-nav{background:white;box-shadow:var(--shadow);position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line)}
-.nav-inner{max-width:1250px;margin:auto;display:flex;gap:5px;overflow-x:auto;padding:10px 15px;scrollbar-width:none}
-.nav-inner button{border:0;background:transparent;color:var(--muted);padding:10px 14px;border-radius:10px;white-space:nowrap;font-size:13px;font-weight:700}
-.nav-inner button.active,.nav-inner button:hover{background:#eaf2ff;color:var(--primary)}
-main{max-width:1250px;margin:25px auto;padding:0 16px 80px}
-.page{display:none;animation:appear .35s ease}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+ background:var(--bg);
+ color:var(--text);
+ font-family:'Cairo',sans-serif;
+ min-height:100vh;
+}
+button{font-family:inherit;cursor:pointer}
+header{
+ height:75px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ padding:0 6%;
+ border-bottom:1px solid var(--line);
+ background:#0b1219;
+ position:sticky;top:0;z-index:20;
+}
+.logo{font-size:25px;font-weight:900;letter-spacing:-1px}
+.logo span{color:var(--green)}
+.logo small{font-size:10px;display:block;color:var(--muted);letter-spacing:3px}
+.live-indicator{color:var(--green);font-size:12px}
+.live-indicator i{
+ display:inline-block;width:8px;height:8px;
+ background:var(--green);border-radius:50%;margin-left:7px;
+ box-shadow:0 0 12px var(--green);
+}
+nav{
+ display:flex;gap:10px;align-items:center;
+}
+nav button{
+ color:var(--muted);background:none;border:0;
+ padding:10px 15px;border-radius:9px;font-size:13px;
+}
+nav button.active,nav button:hover{
+ background:#243322;color:var(--green)
+}
+.mobile-nav{display:none}
+.container{width:90%;max-width:1300px;margin:30px auto}
+.hero{
+ background:linear-gradient(110deg,#172b20,#14232a 60%,#15202b);
+ border:1px solid #304239;border-radius:18px;
+ padding:32px;position:relative;overflow:hidden;
+ display:flex;justify-content:space-between;align-items:center;
+ min-height:185px;
+}
+.hero:after{
+ content:"⚽";position:absolute;left:5%;top:-45px;
+ font-size:180px;opacity:.07;transform:rotate(-20deg)
+}
+.hero h1{font-size:30px;font-weight:900;margin-bottom:8px}
+.hero p{color:#b6c6bd;font-size:13px}
+.hero-tag{
+ background:var(--green);color:#10180c;
+ padding:7px 15px;border-radius:20px;font-size:11px;font-weight:900;
+}
+.section-head{
+ display:flex;justify-content:space-between;align-items:center;
+ margin:28px 0 17px;
+}
+.section-head h2{font-size:19px;font-weight:900}
+.section-head span{font-size:11px;color:var(--muted)}
+.tabs{
+ display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;
+}
+.tabs button,.filter-btn{
+ border:1px solid var(--line);background:var(--panel);
+ color:var(--muted);border-radius:9px;padding:9px 18px;
+ white-space:nowrap;font-size:12px;
+}
+.tabs button.active,.filter-btn.active{
+ background:var(--green);color:#10180c;border-color:var(--green);
+ font-weight:900;
+}
+.match-grid{
+ display:grid;grid-template-columns:repeat(2,1fr);gap:13px;
+}
+.match{
+ background:var(--panel);border:1px solid var(--line);
+ padding:17px;border-radius:13px;transition:.25s;
+}
+.match:hover{border-color:#718e47;transform:translateY(-3px)}
+.match-top{display:flex;justify-content:space-between;color:var(--muted);font-size:11px}
+.status{color:var(--green)}
+.status.finished{color:#8996a3}
+.status.upcoming{color:#f4c65c}
+.match-teams{
+ display:flex;align-items:center;justify-content:space-around;
+ margin:20px 0 14px;text-align:center;
+}
+.team{width:35%;font-size:12px;font-weight:700}
+.team-logo{
+ width:48px;height:48px;border-radius:50%;
+ background:#23313c;display:grid;place-items:center;
+ margin:0 auto 8px;font-size:25px;
+}
+.score{font-size:25px;font-weight:900;direction:ltr}
+.match-bottom{
+ border-top:1px solid var(--line);padding-top:10px;
+ color:var(--muted);font-size:10px;display:flex;justify-content:space-between;
+}
+.league-title{
+ display:flex;align-items:center;gap:9px;
+ font-weight:800;font-size:14px;
+}
+.league-title span{font-size:20px}
+.table-wrap{
+ overflow-x:auto;background:var(--panel);
+ border:1px solid var(--line);border-radius:13px;
+}
+table{width:100%;border-collapse:collapse;min-width:560px;text-align:center}
+th{font-size:11px;color:var(--muted);background:#17232c;padding:14px 8px}
+td{padding:13px 8px;border-bottom:1px solid var(--line);font-size:12px}
+tr:last-child td{border:0}
+.club{text-align:right;font-weight:700}
+.position{color:var(--green);font-weight:900}
+.points{font-weight:900;color:var(--green)}
+.league-grid{
+ display:grid;grid-template-columns:repeat(4,1fr);gap:13px;
+}
+.league-card{
+ background:var(--panel);border:1px solid var(--line);
+ border-radius:13px;padding:20px;text-align:center;
+ transition:.2s;cursor:pointer;
+}
+.league-card:hover{border-color:var(--green);transform:translateY(-3px)}
+.league-icon{font-size:37px;margin-bottom:10px}
+.league-card h3{font-size:13px}
+.league-card p{font-size:10px;color:var(--muted);margin-top:5px}
+.news-grid{
+ display:grid;grid-template-columns:repeat(3,1fr);gap:17px;
+}
+.news-card{
+ background:var(--panel);border:1px solid var(--line);
+ border-radius:13px;overflow:hidden;cursor:pointer;transition:.25s;
+}
+.news-card:hover{transform:translateY(-4px);border-color:#667f47}
+.news-card img{width:100%;height:185px;object-fit:cover;display:block}
+.news-body{padding:15px}
+.category{color:var(--green);font-size:10px;font-weight:800}
+.news-body h3{font-size:14px;line-height:1.9;margin:8px 0}
+.news-body p{color:var(--muted);font-size:11px;line-height:1.9}
+.news-meta{font-size:10px;color:var(--muted);margin-top:13px}
+.featured-news{
+ display:grid;grid-template-columns:1.3fr 1fr;
+ background:var(--panel);border:1px solid var(--line);
+ border-radius:15px;overflow:hidden;margin-bottom:20px;
+}
+.featured-news img{width:100%;height:310px;object-fit:cover}
+.featured-text{padding:28px;display:flex;flex-direction:column;justify-content:center}
+.featured-text h2{font-size:23px;line-height:1.8;margin:12px 0}
+.featured-text p{font-size:12px;color:var(--muted);line-height:2}
+.featured-text button{
+ background:var(--green);border:0;border-radius:8px;
+ padding:10px 17px;margin-top:20px;width:max-content;font-weight:900;
+}
+.page{display:none;animation:fade .35s}
 .page.active{display:block}
-@keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:25px 0 15px}
-.section-head h2{font-size:19px;margin:0;font-weight:900}
-.section-head p{font-size:12px;color:var(--muted);margin:3px 0}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
-.card{background:var(--card);border:1px solid var(--line);border-radius:17px;overflow:hidden;box-shadow:var(--shadow)}
-.card-body{padding:16px}
-.cover{width:100%;height:190px;object-fit:cover;display:block;background:#dce7f5}
-.card h3{margin:0 0 7px;font-size:16px;font-weight:900}
-.card p{font-size:12px;color:var(--muted);line-height:1.9;margin:0}
-.meta{font-size:11px;color:var(--muted);margin-top:12px;display:flex;justify-content:space-between;gap:8px}
-.pill{display:inline-block;padding:5px 10px;border-radius:30px;font-size:10px;font-weight:800;background:#eaf2ff;color:var(--primary)}
-.pill.green{background:#e5f8ef;color:var(--green)}
-.pill.red{background:#fff0f0;color:var(--red)}
-.btn{border:0;border-radius:10px;padding:10px 15px;font-weight:800;font-size:12px;background:var(--primary);color:white}
-.btn.secondary{background:#eaf2ff;color:var(--primary)}
-.btn.danger{background:#fff0f0;color:var(--red)}
-.btn.dark{background:var(--dark)}
-.btn.small{padding:7px 11px}
-.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:13px}
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}
-.filters button{border:1px solid var(--line);background:white;padding:8px 13px;border-radius:30px;color:var(--muted);font-size:12px}
-.filters button.active{background:var(--dark);color:white}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
-.stat{background:white;border:1px solid var(--line);border-radius:15px;padding:17px}
-.stat strong{font-size:26px;display:block;color:var(--primary)}
-.stat span{font-size:12px;color:var(--muted)}
-.match{padding:17px}
-.match-top{display:flex;justify-content:space-between;align-items:center}
-.teams{display:flex;align-items:center;justify-content:space-around;text-align:center;margin:20px 0}
-.team{width:35%;font-weight:900;font-size:13px}
-.team-mark{width:45px;height:45px;border-radius:50%;background:#edf3fc;margin:0 auto 8px;display:grid;place-items:center;font-size:20px}
-.score{font-size:24px;font-weight:900;color:var(--dark)}
-.score small{font-size:12px;color:var(--muted)}
-table{width:100%;border-collapse:collapse;background:white;border-radius:15px;overflow:hidden;font-size:12px}
-th,td{padding:12px 9px;text-align:center;border-bottom:1px solid var(--line)}
-th{background:#edf4ff;color:var(--dark)}
-td:first-child,th:first-child{text-align:right}
-.empty{background:white;border:1px dashed #cbd8e8;padding:35px;text-align:center;border-radius:15px;color:var(--muted);font-size:13px}
-.gallery img{width:100%;height:180px;object-fit:cover;display:block}
-.gallery .card-body{padding:12px}
-.form-card{background:white;padding:20px;border-radius:17px;border:1px solid var(--line);margin-bottom:18px}
-.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.field{display:flex;flex-direction:column;gap:6px}
-.field.full{grid-column:1/-1}
-.field label{font-size:12px;font-weight:800}
-.field input,.field textarea,.field select{width:100%;padding:11px;border:1px solid var(--line);border-radius:9px;background:#fbfcff;outline:none;color:var(--text);font-size:13px}
-.field textarea{min-height:90px;resize:vertical}
-.admin-tabs{display:flex;gap:7px;flex-wrap:wrap;margin:15px 0}
-.admin-tabs button{border:0;background:#eaf2ff;color:var(--primary);padding:9px 12px;border-radius:9px;font-size:12px;font-weight:800}
-.admin-tabs button.active{background:var(--dark);color:white}
-.admin-panel{display:none}.admin-panel.active{display:block}
-footer{background:#081e3b;color:#c4d5e9;text-align:center;padding:28px 15px;font-size:12px}
-footer strong{color:white}
-.overlay{position:fixed;inset:0;background:#06172de8;z-index:100;display:none;align-items:center;justify-content:center;flex-direction:column;color:white}
-.overlay.show{display:flex}
-.ball{font-size:65px;animation:spin .8s linear infinite}
+@keyframes fade{
+ from{opacity:0;transform:translateY(12px)}
+ to{opacity:1;transform:translateY(0)}
+}
+#loader{
+ position:fixed;inset:0;background:#080d12;z-index:100;
+ display:none;align-items:center;justify-content:center;flex-direction:column;
+}
+.ball{
+ font-size:65px;animation:spin .8s linear infinite;
+}
 @keyframes spin{to{transform:rotate(360deg)}}
-.modal{position:fixed;inset:0;background:#06172dbb;z-index:80;display:none;align-items:center;justify-content:center;padding:15px}
-.modal.show{display:flex}
-.modal-box{background:white;border-radius:18px;padding:23px;max-width:650px;width:100%;max-height:85vh;overflow:auto}
-.modal-box img{width:100%;max-height:300px;object-fit:cover;border-radius:12px;margin:12px 0}
-.modal-close{float:left;border:0;background:#edf2fa;border-radius:8px;padding:7px 12px}
-.search{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;margin:10px 0 15px;background:white}
-.mobile-note{font-size:11px;color:var(--muted);margin-top:12px}
-@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.stats{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:520px){
- header{padding:17px 15px}.brand h1{font-size:16px}.header-tag{font-size:10px}
- .hero{padding:23px 0}.hero h2{font-size:26px}
- main{margin-top:15px}.grid,.grid.two{grid-template-columns:1fr}
- .cover{height:200px}.form-grid{grid-template-columns:1fr}
- .field.full{grid-column:auto}.stats{gap:8px}.stat{padding:12px}
- .stat strong{font-size:22px}.section-head h2{font-size:17px}
+#loader p{color:var(--green);margin-top:15px;font-size:12px}
+.modal{
+ display:none;position:fixed;inset:0;background:#000c;
+ z-index:80;align-items:center;justify-content:center;padding:20px;
+}
+.modal-box{
+ background:var(--panel);border:1px solid var(--line);
+ border-radius:15px;width:100%;max-width:650px;
+ max-height:90vh;overflow:auto;
+}
+.modal-box img{width:100%;max-height:280px;object-fit:cover}
+.modal-content{padding:22px}
+.modal-content h2{margin:10px 0;line-height:1.8}
+.modal-content p{color:#b0bac3;line-height:2.2;font-size:13px}
+.close{
+ float:left;background:#293641;border:0;color:white;
+ border-radius:8px;padding:7px 13px;
+}
+.search{
+ background:var(--panel);border:1px solid var(--line);
+ border-radius:9px;color:white;padding:12px 15px;
+ width:100%;outline:none;font-family:inherit;margin-bottom:17px;
+}
+footer{
+ border-top:1px solid var(--line);margin-top:55px;
+ padding:30px 5%;text-align:center;color:var(--muted);font-size:11px;
+}
+footer b{color:var(--green)}
+.empty{padding:30px;text-align:center;color:var(--muted)}
+@media(max-width:750px){
+ header{padding:0 4%;height:65px}
+ .logo{font-size:20px}
+ nav{display:none}
+ .mobile-nav{
+ display:flex;position:fixed;bottom:0;left:0;right:0;
+ background:#101921;border-top:1px solid var(--line);
+ z-index:30;justify-content:space-around;padding:9px 3px;
+ }
+ .mobile-nav button{
+ background:none;border:0;color:var(--muted);
+ font-size:10px;display:flex;flex-direction:column;
+ align-items:center;gap:4px;padding:5px;
+ }
+ .mobile-nav button.active{color:var(--green)}
+ .mobile-nav b{font-size:19px}
+ .container{width:92%;margin:20px auto 85px}
+ .hero{padding:22px;min-height:155px}
+ .hero h1{font-size:22px}
+ .hero-tag{font-size:9px}
+ .match-grid{grid-template-columns:1fr}
+ .league-grid{grid-template-columns:repeat(2,1fr)}
+ .news-grid{grid-template-columns:1fr}
+ .featured-news{grid-template-columns:1fr}
+ .featured-news img{height:210px}
+ .featured-text{padding:19px}
+ .featured-text h2{font-size:19px}
+ .news-card img{height:205px}
 }
 </style>
 </head>
+
 <body>
 
+<div id="loader">
+ <div class="ball">⚽</div>
+ <p>جاري تجهيز الملعب...</p>
+</div>
+
 <header>
- <div class="header-inner">
-  <div class="brand">
-   <div class="logo">⚽</div>
-   <div><h1>اللعوتة الحجاج</h1><p>المنصة الرياضية والإخبارية</p></div>
-  </div>
-  <div class="header-tag">الرياضة تجمعنا</div>
- </div>
- <div class="hero">
-  <h2>كل أخبار الرياضة<br>في مكان واحد</h2>
-  <p>منصة رياضية متكاملة لمتابعة أخبار كرة القدم في اللعوتة الحجاج، نتائج المباريات، البطولات، الفرق والنجوم.</p>
-  <div class="hero-stats">
-   <div class="hero-stat">تغطية رياضية مستمرة</div>
-   <div class="hero-stat">أخبار ونتائج</div>
-   <div class="hero-stat">مجتمع رياضي واحد</div>
-  </div>
- </div>
+ <div class="logo">GOAL<span>ZONE</span><small>FOOTBALL NETWORK</small></div>
+ <nav>
+  <button class="active" onclick="navigate('matches',this)">المباريات</button>
+  <button onclick="navigate('standings',this)">الترتيبات</button>
+  <button onclick="navigate('leagues',this)">الدوريات</button>
+  <button onclick="navigate('news',this)">الأخبار</button>
+ </nav>
+ <div class="live-indicator"><i></i> عالم كرة القدم</div>
 </header>
 
-<nav>
- <div class="nav-inner" id="navigation">
-  <button class="active" data-page="home">الرئيسية</button>
-  <button data-page="news">الأخبار</button>
-  <button data-page="matches">المباريات</button>
-  <button data-page="tournaments">البطولات</button>
-  <button data-page="teams">الفرق</button>
-  <button data-page="players">اللاعبون</button>
-  <button data-page="gallery">معرض الصور</button>
-  <button data-page="videos">الفيديوهات</button>
-  <button data-page="contact">تواصل معنا</button>
-  <button data-page="admin">لوحة الإدارة</button>
+<main class="container">
+
+<section class="hero">
+ <div>
+  <h1>كل ما يحدث في عالم كرة القدم</h1>
+  <p>نتائج مباشرة، أخبار حصرية، ترتيب الدوريات وتحليلات المباريات.</p>
  </div>
-</nav>
+ <div class="hero-tag">THE HOME OF FOOTBALL</div>
+</section>
 
-<main>
+<!-- MATCHES -->
+<section id="matches" class="page active">
 
-<section class="page active" id="home">
- <div class="section-head"><div><h2>مرحباً بكم في منصتنا</h2><p>المشهد الرياضي في اللعوتة الحجاج</p></div></div>
- <div class="stats">
-  <div class="stat"><strong id="statNews">0</strong><span>الأخبار المنشورة</span></div>
-  <div class="stat"><strong id="statMatches">0</strong><span>المباريات المسجلة</span></div>
-  <div class="stat"><strong id="statTeams">0</strong><span>الفرق المسجلة</span></div>
-  <div class="stat"><strong id="statPlayers">0</strong><span>اللاعبون</span></div>
+<div class="section-head">
+ <h2>مركز المباريات</h2><span>موسم 2026 / 2027</span>
+</div>
+
+<div class="tabs" id="matchFilters">
+ <button class="active" onclick="filterMatches('all',this)">جميع المباريات</button>
+ <button onclick="filterMatches('live',this)">مباشر الآن</button>
+ <button onclick="filterMatches('upcoming',this)">قادمة</button>
+ <button onclick="filterMatches('finished',this)">انتهت</button>
+</div>
+
+<div class="section-head">
+ <div class="league-title"><span>🏆</span> الدوري الممتاز</div>
+ <span>الجولة 12</span>
+</div>
+<div class="match-grid" id="matchList"></div>
+
+<div class="section-head">
+ <div class="league-title"><span>🌍</span> دوري الأبطال</div>
+ <span>الجولة 5</span>
+</div>
+<div class="match-grid" id="europeMatches"></div>
+
+<div class="section-head">
+ <h2>أبرز الدوريات</h2>
+ <span>اكتشف المزيد</span>
+</div>
+<div class="league-grid">
+ <div class="league-card" onclick="navigate('leagues')"><div class="league-icon">🏆</div><h3>الدوري الممتاز</h3><p>السودان</p></div>
+ <div class="league-card" onclick="navigate('leagues')"><div class="league-icon">🌟</div><h3>دوري النجوم</h3><p>أوروبا</p></div>
+ <div class="league-card" onclick="navigate('leagues')"><div class="league-icon">🌍</div><h3>دوري الأبطال</h3><p>القارة</p></div>
+ <div class="league-card" onclick="navigate('leagues')"><div class="league-icon">⚽</div><h3>دوري النخبة</h3><p>العالم</p></div>
+</div>
+</section>
+
+<!-- STANDINGS -->
+<section id="standings" class="page">
+<div class="section-head">
+ <h2>جدول الترتيبات</h2><span>موسم 2026 / 2027</span>
+</div>
+<div class="tabs" id="tableTabs">
+ <button class="active" onclick="showTable('premier',this)">الدوري الممتاز</button>
+ <button onclick="showTable('stars',this)">دوري النجوم</button>
+ <button onclick="showTable('champions',this)">دوري الأبطال</button>
+</div>
+<div class="section-head"><h2 id="tableTitle">الدوري الممتاز</h2><span>ترتيب الفرق</span></div>
+<div class="table-wrap">
+<table>
+<thead><tr>
+<th>المركز</th><th style="text-align:right">الفريق</th>
+<th>لعب</th><th>فاز</th><th>تعادل</th><th>خسر</th><th>النقاط</th>
+</tr></thead>
+<tbody id="tableBody"></tbody>
+</table>
+</div>
+<div class="section-head"><h2>إحصائيات الدوري</h2></div>
+<div class="league-grid">
+ <div class="league-card"><div class="league-icon">⚽</div><h3>128</h3><p>إجمالي الأهداف</p></div>
+ <div class="league-card"><div class="league-icon">🎯</div><h3>43</h3><p>مباراة مكتملة</p></div>
+ <div class="league-card"><div class="league-icon">🟨</div><h3>96</h3><p>بطاقات صفراء</p></div>
+ <div class="league-card"><div class="league-icon">🟥</div><h3>8</h3><p>بطاقات حمراء</p></div>
+</div>
+</section>
+
+<!-- LEAGUES -->
+<section id="leagues" class="page">
+<div class="section-head">
+ <h2>الدوريات والبطولات</h2><span>استكشف المنافسات</span>
+</div>
+<input class="search" placeholder="ابحث عن دوري..." oninput="searchLeagues(this.value)">
+<div class="league-grid" id="leagueList"></div>
+<div class="section-head"><h2>أبرز الأندية المشاركة</h2></div>
+<div class="league-grid">
+ <div class="league-card"><div class="league-icon">🔴</div><h3>الهلال الرياضي</h3><p>السودان</p></div>
+ <div class="league-card"><div class="league-icon">🔵</div><h3>المريخ الرياضي</h3><p>السودان</p></div>
+ <div class="league-card"><div class="league-icon">⚪</div><h3>النصر</h3><p>دوري النجوم</p></div>
+ <div class="league-card"><div class="league-icon">🟣</div><h3>الصقور</h3><p>دوري النخبة</p></div>
+ <div class="league-card"><div class="league-icon">🟡</div><h3>النسور الذهبية</h3><p>دوري الأبطال</p></div>
+ <div class="league-card"><div class="league-icon">🟢</div><h3>الأهلي</h3><p>الدوري الممتاز</p></div>
+ <div class="league-card"><div class="league-icon">⚫</div><h3>الاتحاد</h3><p>الدوري الممتاز</p></div>
+ <div class="league-card"><div class="league-icon">🔶</div><h3>الشباب</h3><p>دوري النجوم</p></div>
+</div>
+</section>
+
+<!-- NEWS -->
+<section id="news" class="page">
+<div class="section-head">
+ <h2>المركز الإخباري</h2><span>أخبار كرة القدم</span>
+</div>
+<input class="search" placeholder="ابحث في الأخبار..." oninput="searchNews(this.value)">
+
+<div class="featured-news">
+ <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=1000" alt="ملعب كرة قدم">
+ <div class="featured-text">
+  <span class="category">الخبر الرئيسي • كرة القدم</span>
+  <h2>منافسة قوية تشتعل في صدارة جدول الترتيب مع اقتراب نهاية الموسم</h2>
+  <p>تتواصل الإثارة في المنافسات الكروية، حيث تتقارب الفرق في النقاط وتشتد المنافسة على المراكز الأولى.</p>
+  <button onclick="openArticle(0)">اقرأ التفاصيل ←</button>
  </div>
- <div class="section-head"><div><h2>آخر الأخبار</h2><p>تابع أحدث المستجدات الرياضية</p></div><button class="btn secondary" onclick="go('news')">كل الأخبار ←</button></div>
- <div class="grid" id="homeNews"></div>
- <div class="section-head"><div><h2>أحدث المباريات</h2><p>المواعيد والنتائج</p></div><button class="btn secondary" onclick="go('matches')">كل المباريات ←</button></div>
- <div class="grid" id="homeMatches"></div>
- <div class="section-head"><div><h2>البطولات</h2><p>تابع المنافسات الرياضية</p></div><button class="btn secondary" onclick="go('tournaments')">كل البطولات ←</button></div>
- <div class="grid" id="homeTournaments"></div>
+</div>
+
+<div class="tabs" id="newsFilters">
+ <button class="active" onclick="filterNews('الكل',this)">جميع الأخبار</button>
+ <button onclick="filterNews('محلي',this)">أخبار محلية</button>
+ <button onclick="filterNews('عالمي',this)">أخبار عالمية</button>
+ <button onclick="filterNews('تحليلات',this)">تحليلات</button>
+ <button onclick="filterNews('انتقالات',this)">انتقالات</button>
+</div>
+<div class="section-head"><h2>آخر الأخبار</h2><span>تغطية رياضية</span></div>
+<div class="news-grid" id="newsList"></div>
 </section>
 
-<section class="page" id="news">
- <div class="section-head"><div><h2>الأخبار الرياضية</h2><p>كل جديد في الساحة الرياضية</p></div></div>
- <input class="search" id="newsSearch" placeholder="ابحث عن خبر..." oninput="renderNews()">
- <div class="grid" id="newsList"></div>
-</section>
-
-<section class="page" id="matches">
- <div class="section-head"><div><h2>مركز المباريات</h2><p>مواعيد ونتائج المباريات</p></div></div>
- <div class="filters" id="matchFilters">
-  <button class="active" onclick="matchFilter='الكل';renderMatches()">الكل</button>
-  <button onclick="matchFilter='قادمة';renderMatches()">قادمة</button>
-  <button onclick="matchFilter='مباشرة';renderMatches()">مباشرة</button>
-  <button onclick="matchFilter='انتهت';renderMatches()">انتهت</button>
- </div>
- <div class="grid" id="matchesList"></div>
-</section>
-
-<section class="page" id="tournaments">
- <div class="section-head"><div><h2>البطولات والدوريات</h2><p>معلومات المنافسات ومواعيدها</p></div></div>
- <div class="grid" id="tournamentList"></div>
- <div class="section-head"><div><h2>جدول الترتيب</h2><p>ترتيب الفرق في البطولة</p></div></div>
- <div style="overflow-x:auto">
- <table><thead><tr><th>الفريق</th><th>لعب</th><th>فاز</th><th>تعادل</th><th>خسر</th><th>النقاط</th></tr></thead><tbody id="standings"></tbody></table>
- </div>
-</section>
-
-<section class="page" id="teams">
- <div class="section-head"><div><h2>الفرق الرياضية</h2><p>تعرف على فرق المنطقة</p></div></div>
- <div class="grid" id="teamsList"></div>
-</section>
-
-<section class="page" id="players">
- <div class="section-head"><div><h2>نجوم الملاعب</h2><p>ملفات اللاعبين وبياناتهم</p></div></div>
- <div class="grid" id="playersList"></div>
-</section>
-
-<section class="page" id="gallery">
- <div class="section-head"><div><h2>معرض الصور</h2><p>لحظات وذكريات رياضية</p></div></div>
- <div class="grid" id="galleryList"></div>
-</section>
-
-<section class="page" id="videos">
- <div class="section-head"><div><h2>المكتبة المرئية</h2><p>فيديوهات وملخصات رياضية</p></div></div>
- <div class="grid" id="videosList"></div>
-</section>
-
-<section class="page" id="contact">
- <div class="section-head"><div><h2>تواصل معنا</h2><p>نرحب بمشاركاتكم ومقترحاتكم</p></div></div>
- <div class="grid two">
-  <div class="card card-body">
-   <h3>شاركنا خبرك الرياضي</h3>
-   <p>هل لديك خبر أو نتيجة مباراة أو صورة رياضية؟ أرسلها لفريق المنصة.</p>
-   <div class="actions"><a class="btn" href="mailto:YOUR_EMAIL_HERE?subject=مشاركة%20خبر%20رياضي">إرسال بريد إلكتروني</a></div>
-  </div>
-  <div class="card card-body">
-   <h3>عن المنصة</h3>
-   <p>اللعوتة الحجاج منصة إعلامية رياضية تهدف إلى توثيق النشاط الرياضي، وإبراز الفرق واللاعبين، ونقل أخبار المباريات والبطولات.</p>
-  </div>
- </div>
- <div class="form-card" style="margin-top:18px">
-  <h3>أرسل مقترحك</h3>
-  <div class="form-grid">
-   <div class="field"><label>الاسم</label><input id="contactName" placeholder="اسمك"></div>
-   <div class="field"><label>نوع المشاركة</label><select id="contactType"><option>خبر رياضي</option><option>نتيجة مباراة</option><option>صورة</option><option>مقترح</option></select></div>
-   <div class="field full"><label>التفاصيل</label><textarea id="contactMessage" placeholder="اكتب رسالتك هنا"></textarea></div>
-   <div class="field full"><button class="btn" onclick="sendContact()">إرسال المشاركة</button></div>
-  </div>
-  <p class="mobile-note">تُحفظ المشاركة على هذا الجهاز في النسخة التجريبية.</p>
- </div>
-</section>
-
-<section class="page" id="admin">
- <div class="section-head"><div><h2>لوحة إدارة المنصة</h2><p>إضافة المحتوى وتحديثه من جهازك</p></div><span class="pill green">إدارة محلية</span></div>
- <div class="form-card">
-  <h3>إضافة محتوى جديد</h3>
-  <div class="admin-tabs">
-   <button class="active" onclick="adminTab('newsForm',this)">خبر جديد</button>
-   <button onclick="adminTab('matchForm',this)">مباراة</button>
-   <button onclick="adminTab('tournamentForm',this)">بطولة</button>
-   <button onclick="adminTab('teamForm',this)">فريق</button>
-   <button onclick="adminTab('playerForm',this)">لاعب</button>
-   <button onclick="adminTab('photoForm',this)">صورة</button>
-   <button onclick="adminTab('videoForm',this)">فيديو</button>
-  </div>
-
-  <div class="admin-panel active" id="newsForm">
-   <div class="form-grid">
-    <div class="field full"><label>عنوان الخبر</label><input id="nTitle" placeholder="عنوان الخبر"></div>
-    <div class="field"><label>التصنيف</label><select id="nCategory"><option>أخبار</option><option>مباريات</option><option>بطولات</option><option>انتقالات</option></select></div>
-    <div class="field"><label>رابط صورة الخبر</label><input id="nImage" placeholder="https://..."></div>
-    <div class="field full"><label>تفاصيل الخبر</label><textarea id="nDesc" placeholder="اكتب تفاصيل الخبر"></textarea></div>
-    <div class="field full"><button class="btn" onclick="addNews()">نشر الخبر</button></div>
-   </div>
-  </div>
-
-  <div class="admin-panel" id="matchForm">
-   <div class="form-grid">
-    <div class="field"><label>الفريق الأول</label><input id="mHome" placeholder="الفريق الأول"></div>
-    <div class="field"><label>الفريق الثاني</label><input id="mAway" placeholder="الفريق الثاني"></div>
-    <div class="field"><label>تاريخ المباراة</label><input id="mDate" type="date"></div>
-    <div class="field"><label>وقت المباراة</label><input id="mTime" type="time"></div>
-    <div class="field"><label>النتيجة - الأول</label><input id="mScore1" type="number" min="0" placeholder="اتركه فارغاً إن لم تبدأ"></div>
-    <div class="field"><label>النتيجة - الثاني</label><input id="mScore2" type="number" min="0" placeholder="اتركه فارغاً إن لم تبدأ"></div>
-    <div class="field"><label>الحالة</label><select id="mStatus"><option>قادمة</option><option>مباشرة</option><option>انتهت</option></select></div>
-    <div class="field full"><button class="btn" onclick="addMatch()">حفظ المباراة</button></div>
-   </div>
-  </div>
-
-  <div class="admin-panel" id="tournamentForm">
-   <div class="form-grid">
-    <div class="field"><label>اسم البطولة</label><input id="tName"></div>
-    <div class="field"><label>الحالة</label><select id="tStatus"><option>قادمة</option><option>نشطة</option><option>منتهية</option></select></div>
-    <div class="field"><label>تاريخ البداية</label><input id="tStart" type="date"></div>
-    <div class="field"><label>تاريخ النهاية</label><input id="tEnd" type="date"></div>
-    <div class="field full"><label>الوصف</label><textarea id="tDesc"></textarea></div>
-    <div class="field full"><button class="btn" onclick="addTournament()">إضافة البطولة</button></div>
-   </div>
-  </div>
-
-  <div class="admin-panel" id="teamForm">
-   <div class="form-grid">
-    <div class="field"><label>اسم الفريق</label><input id="teamName"></div>
-    <div class="field"><label>رابط الشعار</label><input id="teamImage" placeholder="https://..."></div>
-    <div class="field full"><label>نبذة عن الفريق</label><textarea id="teamDesc"></textarea></div>
-    <div class="field full"><button class="btn" onclick="addTeam()">إضافة الفريق</button></div>
-   </div>
-  </div>
-
-  <div class="admin-panel" id="playerForm">
-   <div class="form-grid">
-    <div class="field"><label>اسم اللاعب</label><input id="playerName"></div>
-    <div class="field"><label>الفريق</label><input id="playerTeam"></div>
-    <div class="field"><label>المركز</label><select id="playerPosition"><option>حارس مرمى</option><option>مدافع</option><option>وسط</option><option>مهاجم</option></select></div>
-    <div class="field"><label>رقم القميص</label><input id="playerNumber" type="number"></div>
-    <div class="field full"><label>رابط الصورة</label><input id="playerImage" placeholder="https://..."></div>
-    <div class="field full"><button class="btn" onclick="addPlayer()">إضافة اللاعب</button></div>
-   </div>
-  </div>
-
-  <div class="admin-panel" id="photoForm">
-   <div class="form-grid">
-    <div class="field"><label>عنوان الصورة</label><input id="photoTitle"></div>
-    <div class="field"><label>رابط الصورة</label><input id="photoUrl" placeholder="https://..."></div>
-    <div class="field full"><button class="btn" onclick="addPhoto()">إضافة الصورة للمعرض</button></div>
-   </div>
-  </div>
-
-  <div class="admin-panel" id="videoForm">
-   <div class="form-grid">
-    <div class="field"><label>عنوان الفيديو</label><input id="videoTitle"></div>
-    <div class="field"><label>رابط الفيديو</label><input id="videoUrl" placeholder="رابط يوتيوب أو فيديو مباشر"></div>
-    <div class="field full"><button class="btn" onclick="addVideo()">إضافة الفيديو</button></div>
-   </div>
-  </div>
- </div>
-
- <div class="form-card">
-  <h3>إدارة المحتوى المنشور</h3>
-  <p>يمكنك حذف العناصر التي أضفتها من هذا الجهاز.</p>
-  <div class="admin-tabs">
-   <button onclick="manageList('news')">الأخبار</button>
-   <button onclick="manageList('matches')">المباريات</button>
-   <button onclick="manageList('tournaments')">البطولات</button>
-   <button onclick="manageList('teams')">الفرق</button>
-   <button onclick="manageList('players')">اللاعبون</button>
-   <button onclick="manageList('gallery')">الصور</button>
-   <button onclick="manageList('videos')">الفيديوهات</button>
-  </div>
-  <div id="manageList" class="grid"></div>
-  <div class="actions"><button class="btn danger" onclick="resetData()">إعادة ضبط البيانات التجريبية</button></div>
- </div>
- <p class="mobile-note">تنبيه: لوحة الإدارة تجريبية ولا تحتوي على تسجيل دخول أو صلاحيات حماية. البيانات محفوظة في متصفح هذا الجهاز فقط.</p>
-</section>
 </main>
 
 <footer>
- <strong>اللعوتة الحجاج الرياضية</strong>
- <p>منصة رياضية تجمع أخبارنا وفرقنا ونجومنا في مكان واحد.</p>
- <p>© <span id="year"></span> جميع الحقوق محفوظة</p>
+ <div class="logo">GOAL<span>ZONE</span></div>
+ <p style="margin:12px">منصة رياضية تجريبية لعشاق كرة القدم.</p>
+<p>جميع الدوريات والفرق والنتائج الواردة في هذا النموذج <b>بيانات تجريبية</b>.</p>
+<p style="margin-top:12px">© 2026 GOAL ZONE - ALL RIGHTS RESERVED</p>
 </footer>
 
-<div class="overlay" id="transition"><div class="ball">⚽</div><p>جاري الانتقال...</p></div>
-<div class="modal" id="modal" onclick="if(event.target.id==='modal')closeModal()">
- <div class="modal-box"><button class="modal-close" onclick="closeModal()">إغلاق ✕</button><div id="modalContent"></div></div>
-</
+<div class="mobile-nav">
+ <button class="active" onclick="navigate('matches',this)"><b>⚽</b>المباريات</button>
+ <button onclick="navigate('standings',this)"><b>🏆</b>الترتيبات</button>
+ <button onclick="navigate('leagues',this)"><b>🌍</b>الدوريات</button>
+ <button onclick="navigate('news',this)"><b>📰</b>الأخبار</button>
+</div>
+
+<div class="modal" id="articleModal" onclick="if(event.target===this)closeArticle()">
+ <div class="modal-box">
+  <div id="articleContent"></div>
+ </div>
+</div>
+
+<script>
+const matches=[
+ {league:'الممتاز',home:'الهلال الرياضي',away:'المريخ الرياضي',h:'2',a:'1',status:'live',time:"72'",lh:'🔵',la:'🔴'},
+ {league:'الممتاز',home:'النصر',away:'الأهلي',h:'1',a:'1',status:'finished',time:'انتهت',lh:'⚪',la:'🟢'},
+ {league:'الممتاز',home:'الاتحاد',away:'الصقور',h:'-',a:'-',status:'upcoming',time:'18:00',lh:'⚫',la:'🟣'},
+ {league:'الممتاز',home:'الشباب',away:'النسور',h:'-',a:'-',status:'upcoming',time:'20:30',lh:'🟡',la:'🦅'},
+ {league:'الممتاز',home:'النجوم',away:'الفرسان',h:'3',a:'0',status:'finished',time:'انتهت',lh:'⭐',la:'🐎'},
+ {league:'الممتاز',home:'الوحدة',away:'السلام',h:'0',a:'1',status:'finished',time:'انتهت',lh:'🟢',la:'🟠'},
+ {league:'الأبطال',home:'الملوك',away:'النسور الذهبية',h:'1',a:'0',status:'live',time:"54'",lh:'👑',la:'🦅'},
+ {league:'الأبطال',home:'الأبطال',away:'الصقور',h:'-',a:'-',status:'upcoming',time:'21:00',lh:'🏆',la:'🦅'}
+];
+
+function matchHTML(m){
+let st=m.status==='live'?'مباشر':m.status==='finished'?'انتهت':'قادمة';
+return `<div class="match">
+ <div class="match-top"><span>${m.league}</span>
+ <span class="status ${m.status}">${m.status==='live'?'● ':''}${st} ${m.time}</span></div>
+ <div class="match-teams">
+ <div class="team"><div class="team-logo">${m.lh}</div>${m.home}</div>
+ <div class="score">${m.h} - ${m.a}</div>
+ <div class="team"><div class="team-logo">${m.la}</div>${m.away}</div>
+ </div>
+ <div class="match-bottom"><span>ملعب المدينة الدولي</span><span>تفاصيل المباراة</span></div>
+</div>`;
+}
+function renderMatches(filter='all'){
+let filtered=matches.filter(m=>filter==='all'||m.status===filter);
+document.getElementById('matchList').innerHTML=filtered.filter(m=>m.league==='الممتاز').map(matchHTML).join('')||'<div class="empty">لا توجد مباريات في هذا التصنيف</div>';
+document.getElementById('europeMatches').innerHTML=filtered.filter(m=>m.league==='الأبطال').map(matchHTML).join('')||'<div class="empty">لا توجد مباريات</div>';
+}
+function filterMatches(type,btn){
+document.querySelectorAll('#matchFilters button').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');renderMatches(type);
+}
+
+const tables={
+ premier:[
+ ['الهلال الرياضي',10,8,1,1,25,'🔵'],
+ ['المريخ الرياضي',10,7,2,1,23,'🔴'],
+ ['النصر',10,6,2,2,20,'⚪'],
+ ['الأهلي',10,5,3,2,18,'🟢'],
+ ['الاتحاد',10,5,1,4,16,'⚫'],
+ ['الصقور',10,4,3,3,15,'🟣'],
+ ['الشباب',10,4,1,5,13,'🟡'],
+ ['النسور',10,3,3,4,12,'🦅'],
+ ['الوحدة',10,2,2,6,8,'🟢'],
+ ['السلام',10,1,1,8,4,'🟠']
+ ],
+ stars:[
+ ['الملوك',10,8,2,0,26,'👑'],
+ ['الفرسان',10,7,1,2,22,'🐎'],
+ ['النجوم',10,6,2,2,20,'⭐'],
+ ['العمالقة',10,5,2,3,17,'💠'],
+ ['الشعلة',10,4,3,3,15,'🔥'],
+ ['الأمل',10,3,2,5,11,'🌟'],
+ ['الوفاق',10,2,2,6,8,'⚽'],
+ ['النسور',10,1,2,7,5,'🦅']
+ ],
+ champions:[
+ ['الأبطال',5,4,1,0,13,'🏆'],
+ ['الملوك',5,3,1,1,10,'👑'],
+ ['الصقور',5,2,1,2,7,'🦅'],
+ ['النجوم',5,1,1,3,4,'⭐'],
+ ['الفرسان',5,0,0,5,0,'🐎']
+ ]
+};
+function showTable(type,btn){
+if(btn){
+document.querySelectorAll('#tableTabs button').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+}
+const names={premier:'الدوري الممتاز',stars:'دوري النجوم',champions:'دوري الأبطال'};
+document.getElementById('tableTitle').textContent=names[type];
+document.getElementById('tableBody').innerHTML=tables[type].map((r,i)=>`
+<tr>
+<td class="position">${i+1}</td>
+<td class="club">${r[6]} ${r[0]}</td>
+<td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td>
+<td class="points">${r[5]}</td>
+</tr>`).join('');
+}
+
+const leagues=[
+ ['الدوري الممتاز','السودان','🏆','12 فريقاً'],
+ ['دوري النجوم','أوروبا','⭐','16 فريقاً'],
+ ['دوري الأبطال','العالم','🌍','24 فريقاً'],
+ ['دوري النخبة','أفريقيا','👑','12 فريقاً'],
+ ['كأس العاصمة','السودان','🏟️','16 فريقاً'],
+ ['دوري المحترفين','العالم','⚽','20 فريقاً'],
+ ['كأس الأبطال','أوروبا','🥇','32 فريقاً'],
+ ['دوري الشباب','السودان','🔥','10 فرق']
+];
+function renderLeagues(list=leagues){
+document.getElementById('leagueList').innerHTML=list.map(l=>`
+<div class="league-card" onclick="showTable('premier');navigate('standings')">
+<div class="league-icon">${l[2]}</div><h3>${l[0]}</h3>
+<p>${l[1]} • ${l[3]}</p></div>`).join('');
+}
+function searchLeagues(q){
+renderLeagues(leagues.filter(l=>(l[0]+l[1]).includes(q)));
+}
+
+const news=[
+{cat:'محلي',title:'الهلال يحقق فوزاً مهماً في قمة الجولة ويعزز صدارته',date:'7 نوفمبر 2026',img:'https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800',desc:'حقق فريق الهلال الرياضي فوزاً مهماً بنتيجة هدفين مقابل هدف، في مباراة شهدت أداءً قوياً من الطرفين. وبهذا الانتصار يواصل الفريق مسيرته نحو المنافسة على لقب الدوري.'},
+{cat:'عالمي',title:'ليلة كروية مثيرة ومنافسة قوية في البطولات الأوروبية',date:'6 نوفمبر 2026',img:'https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800',desc:'شهدت المنافسات الأوروبية مواجهات قوية وأداءً مميزاً من الأندية المشاركة، وسط ترقب جماهيري كبير للجولات المقبلة.'},
+{cat:'انتقالات',title:'تحركات جديدة في سوق الانتقالات والأندية تدرس خياراتها',date:'5 نوفمبر 2026',img:'https://images.unsplash.com/photo-
